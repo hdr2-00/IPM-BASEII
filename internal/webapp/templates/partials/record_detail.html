@@ -1,0 +1,45 @@
+{{define "record_detail.html"}}
+{{if .NotFound}}
+  <div class="detail-empty">
+    {{icon "search_off" 30}}
+    <div>That record is not in this file.</div>
+  </div>
+{{else}}
+  <div class="toolbar" style="margin-bottom:var(--s3);">
+    <span class="chip chip-neutral mono">#{{.RecordNumber}}</span>
+    {{if not .ParseErr}}
+      <span class="chip chip-neutral mono">{{.Identifier}}</span>
+      {{if .Recognised}}
+        <span class="chip chip-success">{{.Function}}</span>
+      {{else}}
+        <span class="chip chip-error">not in the manual</span>
+      {{end}}
+    {{end}}
+  </div>
+
+  {{if .ParseErr}}
+    <div class="alert alert-error">
+      {{icon "error" 16}}
+      <div><strong>Could not decode this record.</strong><br>{{.ParseErr}}</div>
+    </div>
+  {{else}}
+    {{range .Findings}}
+    <div class="alert {{if eq .Severity "ERROR"}}alert-error{{else}}alert-warning{{end}}">
+      {{if eq .Severity "ERROR"}}{{icon "error" 16}}{{else}}{{icon "warning" 16}}{{end}}
+      <div>
+        <div class="alert-rule">{{.Rule}}{{if .Tag}} · {{.Tag}}{{end}}</div>
+        <div>{{.Message}}</div>
+      </div>
+    </div>
+    {{end}}
+
+    <div style="max-height:460px; overflow-y:auto;">
+      <table class="field-table">
+        {{range .Fields}}
+        <tr><td>{{.Tag}}</td><td>{{.Value}}</td></tr>
+        {{end}}
+      </table>
+    </div>
+  {{end}}
+{{end}}
+{{end}}

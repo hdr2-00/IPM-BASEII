@@ -1,0 +1,785 @@
+[
+  {
+    "transaction_codes": [
+      "90"
+    ],
+    "format": "ctf",
+    "direction": "incoming",
+    "title": "File Header (Incoming Ctf)",
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 8,
+        "length": 6,
+        "format": "UN",
+        "name": "Processing BIN"
+      },
+      {
+        "start": 9,
+        "end": 13,
+        "length": 5,
+        "format": "UN",
+        "name": "Processing Date (YYDDD)"
+      },
+      {
+        "start": 14,
+        "end": 19,
+        "length": 6,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 20,
+        "end": 24,
+        "length": 5,
+        "format": "UN",
+        "name": "Settlement Date (YYDDD)"
+      },
+      {
+        "start": 25,
+        "end": 26,
+        "length": 2,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 27,
+        "end": 29,
+        "length": 3,
+        "format": "UN",
+        "name": "Release Number"
+      },
+      {
+        "start": 30,
+        "end": 33,
+        "length": 4,
+        "format": "AN",
+        "name": "Test Option"
+      },
+      {
+        "start": 34,
+        "end": 62,
+        "length": 29,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 63,
+        "end": 70,
+        "length": 8,
+        "format": "AN",
+        "name": "Security Code"
+      },
+      {
+        "start": 71,
+        "end": 76,
+        "length": 6,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 77,
+        "end": 79,
+        "length": 3,
+        "format": "UN",
+        "name": "Incoming File ID"
+      },
+      {
+        "start": 80,
+        "end": 168,
+        "length": 89,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ]
+  },
+  {
+    "transaction_codes": [
+      "90"
+    ],
+    "format": "ctf",
+    "direction": "outgoing",
+    "title": "File Header (Outgoing Ctf)",
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 8,
+        "length": 6,
+        "format": "AN",
+        "name": "Processing BIN"
+      },
+      {
+        "start": 9,
+        "end": 13,
+        "length": 5,
+        "format": "UN",
+        "name": "Processing Date (YYDDD)"
+      },
+      {
+        "start": 14,
+        "end": 29,
+        "length": 16,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 30,
+        "end": 33,
+        "length": 4,
+        "format": "AN",
+        "name": "Test Option"
+      },
+      {
+        "start": 34,
+        "end": 62,
+        "length": 29,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 63,
+        "end": 70,
+        "length": 8,
+        "format": "AN",
+        "name": "Security Code"
+      },
+      {
+        "start": 71,
+        "end": 76,
+        "length": 6,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 77,
+        "end": 79,
+        "length": 3,
+        "format": "UN",
+        "name": "Outgoing File ID"
+      },
+      {
+        "start": 80,
+        "end": 168,
+        "length": 89,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ]
+  },
+  {
+    "transaction_codes": [
+      "90"
+    ],
+    "format": "itf",
+    "direction": "incoming",
+    "title": "File Header (Incoming Itf)",
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 8,
+        "length": 6,
+        "format": "UN",
+        "name": "Processing BIN"
+      },
+      {
+        "start": 9,
+        "end": 13,
+        "length": 5,
+        "format": "UN",
+        "name": "Processing Date (YYDDD)"
+      },
+      {
+        "start": 14,
+        "end": 14,
+        "length": 1,
+        "format": "AN",
+        "name": "Continuation Tape Indicator"
+      },
+      {
+        "start": 15,
+        "end": 15,
+        "length": 1,
+        "format": "AN",
+        "name": "Group Data Indicator"
+      },
+      {
+        "start": 16,
+        "end": 19,
+        "length": 4,
+        "format": "UN",
+        "name": "Table File Version Number"
+      },
+      {
+        "start": 20,
+        "end": 24,
+        "length": 5,
+        "format": "UN",
+        "name": "Settlement Date (YYDDD)"
+      },
+      {
+        "start": 25,
+        "end": 26,
+        "length": 2,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 27,
+        "end": 29,
+        "length": 3,
+        "format": "UN",
+        "name": "Release Number"
+      },
+      {
+        "start": 30,
+        "end": 33,
+        "length": 4,
+        "format": "AN",
+        "name": "Test Option"
+      },
+      {
+        "start": 34,
+        "end": 34,
+        "length": 1,
+        "format": "AN",
+        "name": "Process Option"
+      },
+      {
+        "start": 35,
+        "end": 38,
+        "length": 4,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 39,
+        "end": 44,
+        "length": 6,
+        "format": "UN",
+        "name": "Starting Batch Number"
+      },
+      {
+        "start": 45,
+        "end": 62,
+        "length": 18,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 63,
+        "end": 70,
+        "length": 8,
+        "format": "AN",
+        "name": "Security Code"
+      },
+      {
+        "start": 71,
+        "end": 71,
+        "length": 1,
+        "format": "AN",
+        "name": "Delivery Code"
+      },
+      {
+        "start": 72,
+        "end": 76,
+        "length": 5,
+        "format": "AN",
+        "name": "BASE II File Type"
+      },
+      {
+        "start": 77,
+        "end": 106,
+        "length": 30,
+        "format": "AN",
+        "name": "BASE II Unique File ID"
+      },
+      {
+        "start": 107,
+        "end": 111,
+        "length": 5,
+        "format": "AN",
+        "name": "BASE II Customized Delivery File Type"
+      },
+      {
+        "start": 112,
+        "end": 123,
+        "length": 12,
+        "format": "AN",
+        "name": "Source Name"
+      },
+      {
+        "start": 124,
+        "end": 135,
+        "length": 12,
+        "format": "AN",
+        "name": "Destination Name"
+      },
+      {
+        "start": 136,
+        "end": 168,
+        "length": 33,
+        "format": "AN",
+        "name": "Reserved."
+      }
+    ]
+  },
+  {
+    "transaction_codes": [
+      "90"
+    ],
+    "format": "itf",
+    "direction": "outgoing",
+    "title": "File Header (Outgoing Itf)",
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 8,
+        "length": 6,
+        "format": "UN",
+        "name": "Processing BIN"
+      },
+      {
+        "start": 9,
+        "end": 13,
+        "length": 5,
+        "format": "UN",
+        "name": "Processing Date (YYDDD)"
+      },
+      {
+        "start": 14,
+        "end": 14,
+        "length": 1,
+        "format": "AN",
+        "name": "Continuation Tape Indicator"
+      },
+      {
+        "start": 15,
+        "end": 15,
+        "length": 1,
+        "format": "AN",
+        "name": "Group Data Indicator"
+      },
+      {
+        "start": 16,
+        "end": 19,
+        "length": 4,
+        "format": "UN",
+        "name": "Table File Version Number"
+      },
+      {
+        "start": 20,
+        "end": 24,
+        "length": 5,
+        "format": "UN",
+        "name": "Settlement Date (YYDDD)"
+      },
+      {
+        "start": 25,
+        "end": 26,
+        "length": 2,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 27,
+        "end": 29,
+        "length": 3,
+        "format": "UN",
+        "name": "Release Number"
+      },
+      {
+        "start": 30,
+        "end": 33,
+        "length": 4,
+        "format": "AN",
+        "name": "Test Option"
+      },
+      {
+        "start": 34,
+        "end": 34,
+        "length": 1,
+        "format": "AN",
+        "name": "Process Option"
+      },
+      {
+        "start": 35,
+        "end": 38,
+        "length": 4,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 39,
+        "end": 44,
+        "length": 6,
+        "format": "UN",
+        "name": "Starting Batch Number"
+      },
+      {
+        "start": 45,
+        "end": 62,
+        "length": 18,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 63,
+        "end": 70,
+        "length": 8,
+        "format": "AN",
+        "name": "Security Code"
+      },
+      {
+        "start": 71,
+        "end": 71,
+        "length": 1,
+        "format": "AN",
+        "name": "Delivery Code"
+      },
+      {
+        "start": 72,
+        "end": 76,
+        "length": 5,
+        "format": "AN",
+        "name": "BASE II File Type"
+      },
+      {
+        "start": 77,
+        "end": 106,
+        "length": 30,
+        "format": "AN",
+        "name": "BASE II Unique File ID"
+      },
+      {
+        "start": 107,
+        "end": 111,
+        "length": 5,
+        "format": "AN",
+        "name": "BASE II Customized Delivery File Type"
+      },
+      {
+        "start": 112,
+        "end": 123,
+        "length": 12,
+        "format": "AN",
+        "name": "Source Name"
+      },
+      {
+        "start": 124,
+        "end": 135,
+        "length": 12,
+        "format": "AN",
+        "name": "Destination Name"
+      },
+      {
+        "start": 136,
+        "end": 168,
+        "length": 33,
+        "format": "AN",
+        "name": "Reserved."
+      }
+    ]
+  },
+  {
+    "transaction_codes": [
+      "91",
+      "92"
+    ],
+    "format": "ctf",
+    "direction": "both",
+    "title": "Batch / File Trailer (Ctf)",
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 10,
+        "length": 6,
+        "format": "UN",
+        "name": "BIN"
+      },
+      {
+        "start": 11,
+        "end": 15,
+        "length": 5,
+        "format": "UN",
+        "name": "Processing Date (YYDDD)"
+      },
+      {
+        "start": 16,
+        "end": 30,
+        "length": 15,
+        "format": "UN",
+        "name": "Destination Amount"
+      },
+      {
+        "start": 31,
+        "end": 42,
+        "length": 12,
+        "format": "UN",
+        "name": "Number of Monetary Transactions"
+      },
+      {
+        "start": 43,
+        "end": 48,
+        "length": 6,
+        "format": "UN",
+        "name": "Batch Number"
+      },
+      {
+        "start": 49,
+        "end": 60,
+        "length": 12,
+        "format": "UN",
+        "name": "Number of TCRs"
+      },
+      {
+        "start": 61,
+        "end": 66,
+        "length": 6,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 67,
+        "end": 74,
+        "length": 8,
+        "format": "AN",
+        "name": "Center Batch ID"
+      },
+      {
+        "start": 75,
+        "end": 83,
+        "length": 9,
+        "format": "UN",
+        "name": "Number of Transactions"
+      },
+      {
+        "start": 84,
+        "end": 101,
+        "length": 18,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 102,
+        "end": 116,
+        "length": 15,
+        "format": "UN",
+        "name": "Source Amount"
+      },
+      {
+        "start": 117,
+        "end": 131,
+        "length": 15,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 132,
+        "end": 146,
+        "length": 15,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 147,
+        "end": 161,
+        "length": 15,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 162,
+        "end": 168,
+        "length": 7,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ]
+  },
+  {
+    "transaction_codes": [
+      "91",
+      "92"
+    ],
+    "format": "itf",
+    "direction": "both",
+    "title": "Batch / File Trailer (Itf)",
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 10,
+        "length": 6,
+        "format": "UN",
+        "name": "BIN"
+      },
+      {
+        "start": 11,
+        "end": 15,
+        "length": 5,
+        "format": "UN",
+        "name": "Processing Date (YYDDD)"
+      },
+      {
+        "start": 16,
+        "end": 30,
+        "length": 15,
+        "format": "UN",
+        "name": "Destination Amount"
+      },
+      {
+        "start": 31,
+        "end": 42,
+        "length": 12,
+        "format": "UN",
+        "name": "Number of Monetary Transactions"
+      },
+      {
+        "start": 43,
+        "end": 48,
+        "length": 6,
+        "format": "UN",
+        "name": "Batch Number"
+      },
+      {
+        "start": 49,
+        "end": 60,
+        "length": 12,
+        "format": "UN",
+        "name": "Number of TCRs"
+      },
+      {
+        "start": 61,
+        "end": 66,
+        "length": 6,
+        "format": "UN",
+        "name": "File Continuation Count"
+      },
+      {
+        "start": 67,
+        "end": 74,
+        "length": 8,
+        "format": "AN",
+        "name": "Center Batch ID"
+      },
+      {
+        "start": 75,
+        "end": 83,
+        "length": 9,
+        "format": "UN",
+        "name": "Number of Transactions"
+      },
+      {
+        "start": 84,
+        "end": 101,
+        "length": 18,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 102,
+        "end": 116,
+        "length": 15,
+        "format": "UN",
+        "name": "Source Amount"
+      },
+      {
+        "start": 117,
+        "end": 131,
+        "length": 15,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 132,
+        "end": 146,
+        "length": 15,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 147,
+        "end": 161,
+        "length": 15,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 162,
+        "end": 168,
+        "length": 7,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+# Build output and test artifacts
+/bin/
+*.exe
+*.test
+*.out
+/coverage/
+
+# Local editor and assistant settings
+/.claude/
+/.codex/
+/.agents/
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+
+# Local configuration and clearing data
+.env
+.env.*
+!.env.example
+/data/
+/uploads/
+/exports/
+/reports/
+*.ipm
+*.ctf
+*.itf
+*.csv
+*.log
+*.pem
+*.key

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{template "head" .}}
+</head>
+<body>
+  <header class="topbar">
+    {{icon "account_balance" 22}}
+    <div class="topbar-identity">
+      <div class="topbar-title">{{.Session.Filename}}</div>
+      <div class="topbar-subtitle">{{if eq .Scheme "visa"}}Visa BASE II{{else}}Mastercard IPM{{end}}</div>
+    </div>
+    <div class="topbar-spacer"></div>
+
+    <a href="/" class="btn btn-outlined btn-sm">
+      {{icon "upload_file" 16}}
+      <span class="btn-label">Open another</span>
+    </a>
+    <a href="/export/report" class="icon-btn" title="Download the validation report"
+       aria-label="Download the validation report">{{icon "description"}}</a>
+    <button class="icon-btn" title="Export fields as CSV" aria-label="Export fields as CSV"
+            onclick="document.getElementById('export-dialog').showModal()">{{icon "download"}}</button>
+    <div class="topbar-sep"></div>
+    {{template "theme-control" .}}
+  </header>
+
+  <div class="page">
+    <div class="tabs" role="tablist" aria-label="Views of this file">
+      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-content"
+              onclick="setActiveTab(this)"
+              hx-get="/partial/overview" hx-target="#tab-content" hx-trigger="click, load">
+        {{icon "dashboard" 16}} Overview
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-content"
+              onclick="setActiveTab(this)"
+              hx-get="/partial/records?page=1" hx-target="#tab-content" hx-trigger="click">
+        {{icon "table_rows" 16}} {{if eq .Scheme "visa"}}Transactions{{else}}Records{{end}}
+      </button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-content"
+              onclick="setActiveTab(this)"
+              hx-get="/partial/findings?page=1" hx-target="#tab-content" hx-trigger="click">
+        {{icon "fact_check" 16}} Findings
+        <span id="findings-badge" class="chip chip-error" aria-live="polite"
+              {{if not .Summary.TotalErrors}}style="display:none;"{{end}}>{{.Summary.TotalErrors}}<span class="visually-hidden"> errors</span></span>
+      </button>
+      <div class="topbar-spacer"></div>
+      <button class="btn btn-filled btn-sm" style="align-self:center;"
+              onclick="document.getElementById('export-dialog').showModal()">
+        {{icon "file_download" 16}}
+        Export CSV
+      </button>
+    </div>
+
+    <main id="tab-content" role="tabpanel" tabindex="-1">
+      <div class="empty-state">
+        <span class="spinner spinner-lg"></span>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="export-dialog" class="dialog" aria-labelledby="export-dialog-title">
+    <div class="card">
+      <h2 class="card-title" id="export-dialog-title">{{icon "file_download" 16}} Export CSV</h2>
+      <p class="card-subtitle">
+        One row per {{if eq .Scheme "visa"}}transaction, columns named after the fields{{else}}message, columns named by DE and PDS number{{end}}.
+        Values are escaped so a spreadsheet opens them as text, never as formulas.
+      </p>
+      <div class="checkbox-row" style="margin-bottom:var(--s5);">
+        <input type="checkbox" id="export-include-all" {{if .IncludeAll}}checked{{end}}>
+        <label for="export-include-all">
+          {{if eq .Scheme "visa"}}Include file header, batch trailer and file trailer{{else}}Include file header, trailer and other control records{{end}}
+        </label>
+      </div>
+      <div style="display:flex; gap:var(--s2); justify-content:flex-end;">
+        <button class="btn btn-text" onclick="document.getElementById('export-dialog').close()">Cancel</button>
+        <a class="btn btn-filled" id="export-link" href="/export/csv">
+          {{icon "download" 16}} Download
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    document.getElementById('export-include-all').addEventListener('change', function () {
+      document.getElementById('export-link').href = '/export/csv?include_all=' + (this.checked ? 'on' : 'off');
+    });
+  </script>
+</body>
+</html>

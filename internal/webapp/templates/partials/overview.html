@@ -1,0 +1,136 @@
+{{define "overview.html"}}
+{{$unit := "records"}}{{if eq .Scheme "visa"}}{{$unit = "transactions"}}{{end}}
+
+{{if .ScanAborted}}
+<div class="alert alert-error" role="alert">
+  {{icon "broken_image" 16}}
+  <div><strong>Partial file.</strong> {{.ScanAborted}}</div>
+</div>
+{{end}}
+
+{{if .Strip}}
+<div class="file-strip-wrap">
+  <div class="file-strip" role="group" aria-label="Status of every record, in file order">
+    {{range .Strip}}
+    <button type="button" class="file-strip-seg {{.Status}}" title="{{.Label}}" aria-label="{{.Label}}"
+            hx-get="/partial/records?page=1&selected={{.FirstRecord}}" hx-target="#tab-content"
+            onclick="activateRecordsTab()"></button>
+    {{end}}
+  </div>
+  <div class="file-strip-legend">
+    <span>Every one of the {{$unit}} in file order. Select a band to open it.</span>
+    <span style="flex:1"></span>
+    <span><i class="status-dot ok" style="margin:0"></i> clean</span>
+    <span><i class="status-dot warning" style="margin:0"></i> warning</span>
+    <span><i class="status-dot error" style="margin:0"></i> error</span>
+  </div>
+</div>
+{{end}}
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-value">{{.Summary.TotalRecords}}</div>
+    <div class="stat-label">{{icon "receipt_long" 13}} {{$unit}} read</div>
+  </div>
+  <div class="stat-card {{if .Summary.ParseErrors}}is-error{{else}}is-ok{{end}}">
+    <div class="stat-value">{{.Summary.ParseErrors}}</div>
+    <div class="stat-label">{{icon "broken_image" 13}} could not be decoded</div>
+  </div>
+  <div class="stat-card {{if .Summary.TotalErrors}}is-error{{else}}is-ok{{end}}">
+    <div class="stat-value">{{.Summary.TotalErrors}}</div>
+    <div class="stat-label">{{icon "error" 13}} errors</div>
+  </div>
+  <div class="stat-card {{if .Summary.TotalWarnings}}is-warning{{else}}is-ok{{end}}">
+    <div class="stat-value">{{.Summary.TotalWarnings}}</div>
+    <div class="stat-label">{{icon "warning" 13}} warnings</div>
+  </div>
+</div>
+
+{{if ne .Scheme "visa"}}
+<div class="toolbar">
+  <div class="text-sm muted">Checking against the requirement column for:</div>
+  <div class="radio-group" style="flex-direction:row; gap:var(--s4);">
+    <label class="radio-row text-sm">
+      <input type="radio" name="ov-role" value="org" {{if eq .Role "org"}}checked{{end}}
+             hx-post="/revalidate" hx-vals='{"role":"org"}' hx-target="#tab-content">
+      Originator
+    </label>
+    <label class="radio-row text-sm">
+      <input type="radio" name="ov-role" value="dst" {{if eq .Role "dst"}}checked{{end}}
+             hx-post="/revalidate" hx-vals='{"role":"dst"}' hx-target="#tab-content">
+      Destination
+    </label>
+  </div>
+</div>
+{{end}}
+
+<div class="two-col">
+  <div class="card">
+    <h3 class="card-title">{{icon "category" 16}} What is in the file</h3>
+    <table class="kv-table">
+      {{range $name, $count := .Summary.RecordsByFunction}}
+      <tr><td>{{$name}}</td><td>{{$count}}</td></tr>
+      {{else}}
+      <tr><td class="muted">Nothing decoded</td></tr>
+      {{end}}
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">{{icon "scale" 16}} Money in the file</h3>
+    {{if .Summary.AmountTotals}}
+    <table class="kv-table">
+      {{range $key, $total := .Summary.AmountTotals}}
+      <tr>
+        <td>
+          {{$total.Function}}
+          <div class="faint text-sm">
+            {{if $total.IsCredit}}{{icon "credit" 12}}{{else}}{{icon "debit" 12}}{{end}}
+            {{$total.Direction}}, {{$total.Count}} in <span class="mono">{{$total.CurrencyCode}}</span>
+          </div>
+        </td>
+        <td>
+          <span class="amount{{if $total.IsCredit}} is-credit{{end}}">{{if $total.IsCredit}}+{{end}}{{$total.Display}}</span>
+        </td>
+      </tr>
+      {{end}}
+    </table>
+    <p class="text-sm muted" style="margin:var(--s3) 0 0;">
+      Each flow is totalled on its own and the figures are never netted, because which side nets
+      against which depends on your role in the exchange. Every currency is shown at its own
+      number of decimal places.
+    </p>
+    {{else}}
+    <p class="text-sm muted">No amounts in scope.</p>
+    {{end}}
+  </div>
+</div>
+
+{{if or .Summary.ErrorsByRule .Summary.WarningsByRule}}
+<div class="card">
+  <h3 class="card-title">{{icon "rule" 16}} Which checks failed</h3>
+  <div class="table-scroll">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th scope="col">Check</th>
+          <th scope="col">Severity</th>
+          <th scope="col" class="num">Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{range $rule, $count := .Summary.ErrorsByRule}}
+        <tr><td class="mono">{{$rule}}</td><td><span class="chip chip-error">error</span></td><td class="num">{{$count}}</td></tr>
+        {{end}}
+        {{range $rule, $count := .Summary.WarningsByRule}}
+        <tr><td class="mono">{{$rule}}</td><td><span class="chip chip-warning">warning</span></td><td class="num">{{$count}}</td></tr>
+        {{end}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{end}}
+
+<span id="findings-badge" class="chip chip-error" hx-swap-oob="true" aria-live="polite"
+      {{if not .Summary.TotalErrors}}style="display:none;"{{end}}>{{.Summary.TotalErrors}}<span class="visually-hidden"> errors</span></span>
+{{end}}

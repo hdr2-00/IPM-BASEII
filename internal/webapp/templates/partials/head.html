@@ -1,0 +1,30 @@
+{{define "head"}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{.Title}}</title>
+<script>
+// Applied before first paint so an explicitly chosen theme never flashes
+// the other one. "system" stores nothing and follows prefers-color-scheme.
+(function () {
+  try {
+    var t = localStorage.getItem('mciipm-theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* private mode or blocked storage: fall back to the OS */ }
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231b4d3e' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 20h18M6 20V9M12 20V4M18 20v-7'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="{{assetURL "/static/style.css"}}">
+<script src="{{assetURL "/static/vendor/htmx.min.js"}}" defer></script>
+<script src="{{assetURL "/static/app.js"}}" defer></script>
+{{end}}
+
+{{define "theme-control"}}
+<div class="theme-control" role="group" aria-label="Colour theme">
+  <button type="button" data-theme-choice="system" aria-pressed="false"
+          title="Follow system theme" aria-label="Follow system theme">{{icon "auto_mode" 15}}</button>
+  <button type="button" data-theme-choice="light" aria-pressed="false"
+          title="Light theme" aria-label="Light theme">{{icon "light_mode" 15}}</button>
+  <button type="button" data-theme-choice="dark" aria-pressed="false"
+          title="Dark theme" aria-label="Dark theme">{{icon "dark_mode" 15}}</button>
+</div>
+{{end}}

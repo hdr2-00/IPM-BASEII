@@ -1,0 +1,54 @@
+{{define "findings.html"}}
+<div class="toolbar" id="findings-filter-group">
+  <div class="filter-group">
+    <button class="filter-chip {{if eq .Severity ""}}active{{end}}" onclick="setActiveFilter(this,'#findings-filter-group')"
+            hx-get="/partial/findings?page=1&severity=" hx-target="#tab-content">All<span class="chip-count">{{.Counts.Total}}</span></button>
+    <button class="filter-chip {{if eq .Severity "ERROR"}}active{{end}}" onclick="setActiveFilter(this,'#findings-filter-group')"
+            hx-get="/partial/findings?page=1&severity=ERROR" hx-target="#tab-content">Errors<span class="chip-count">{{.Counts.Errors}}</span></button>
+    <button class="filter-chip {{if eq .Severity "WARNING"}}active{{end}}" onclick="setActiveFilter(this,'#findings-filter-group')"
+            hx-get="/partial/findings?page=1&severity=WARNING" hx-target="#tab-content">Warnings<span class="chip-count">{{.Counts.Warnings}}</span></button>
+  </div>
+  <div class="spacer"></div>
+  <div class="text-sm muted">{{.Total}} shown</div>
+</div>
+
+<div class="card">
+  {{if .Findings}}
+    {{range .Findings}}
+    <div class="alert alert-clickable {{if eq .Severity "ERROR"}}alert-error{{else}}alert-warning{{end}}"
+         role="button" tabindex="0"
+         aria-label="Open record {{.RecordNumber}}"
+         hx-get="/partial/records?page=1&selected={{.RecordNumber}}" hx-target="#tab-content"
+         hx-trigger="click, keyup[key=='Enter'], keyup[key==' ']"
+         onclick="activateRecordsTab()" onkeyup="if(event.key==='Enter'||event.key===' ')activateRecordsTab()">
+      {{if eq .Severity "ERROR"}}{{icon "error" 16}}{{else}}{{icon "warning" 16}}{{end}}
+      <div>
+        <div class="alert-rule">record {{.RecordNumber}} · {{.Rule}}{{if .Tag}} · {{.Tag}}{{end}}</div>
+        <div>{{.Message}}</div>
+      </div>
+      <span class="alert-go">{{icon "chevron_right" 16}}</span>
+    </div>
+    {{end}}
+
+    <div class="pagination">
+      <div>{{.Pagination.RangeStart}}–{{.Pagination.RangeEnd}} of {{.Pagination.Total}}</div>
+      <div class="pagination-controls">
+        <button class="icon-btn" aria-label="Previous page" {{if not .Pagination.HasPrev}}disabled{{end}}
+                hx-get="/partial/findings?page={{.Pagination.PrevPage}}&severity={{.Severity}}" hx-target="#tab-content">
+          {{icon "chevron_left" 18}}
+        </button>
+        <span class="text-sm">Page {{.Pagination.Page}} of {{.Pagination.TotalPages}}</span>
+        <button class="icon-btn" aria-label="Next page" {{if not .Pagination.HasNext}}disabled{{end}}
+                hx-get="/partial/findings?page={{.Pagination.NextPage}}&severity={{.Severity}}" hx-target="#tab-content">
+          {{icon "chevron_right" 18}}
+        </button>
+      </div>
+    </div>
+  {{else}}
+    <div class="empty-state">
+      {{icon "task_alt" 30}}
+      <div>Nothing failed{{if .Severity}} at this severity{{end}}.</div>
+    </div>
+  {{end}}
+</div>
+{{end}}

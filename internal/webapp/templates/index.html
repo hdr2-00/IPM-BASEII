@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{template "head" .}}
+</head>
+<body>
+  <header class="topbar">
+    {{icon "account_balance" 22}}
+    <div class="topbar-identity">
+      <div class="topbar-title">mciipm</div>
+      <div class="topbar-subtitle">Clearing file inspector</div>
+    </div>
+    <div class="topbar-spacer"></div>
+    {{template "theme-control" .}}
+  </header>
+
+  <main class="center-page">
+    <div class="card" style="width:100%; max-width:560px;">
+      <h1 style="margin-bottom:4px;">Open a clearing file</h1>
+      <p class="card-subtitle">
+        Decode it, check it against the network's own format rules, and export the fields as CSV.
+        Nothing leaves this machine.
+      </p>
+
+      <div id="upload-error"></div>
+
+      <form id="upload-form" hx-post="/upload" hx-encoding="multipart/form-data"
+            hx-target="#upload-error" hx-indicator="#upload-form">
+
+        <div class="field">
+          <label id="network-label">Card network</label>
+          <div class="scheme-toggle" role="radiogroup" aria-labelledby="network-label">
+            <button type="button" class="scheme-option active" data-scheme="mastercard"
+                    role="radio" aria-checked="true" onclick="selectScheme('mastercard')">
+              {{icon "layers" 20}}
+              <div>
+                <div class="scheme-option-title">Mastercard IPM</div>
+                <div class="scheme-option-sub">Presentments, chargebacks, addenda</div>
+              </div>
+            </button>
+            <button type="button" class="scheme-option" data-scheme="visa"
+                    role="radio" aria-checked="false" onclick="selectScheme('visa')">
+              {{icon "columns" 20}}
+              <div>
+                <div class="scheme-option-title">Visa BASE II</div>
+                <div class="scheme-option-sub">TC 05 draft data, CTF or ITF</div>
+              </div>
+            </button>
+          </div>
+          <input type="hidden" name="scheme" id="scheme-input" value="mastercard">
+        </div>
+
+        <label class="dropzone" id="dropzone" for="file-input">
+          {{icon "cloud_upload" 28}}
+          <div>Drop a clearing file here, or choose one</div>
+          <div class="dropzone-filename" id="dropzone-filename" style="display:none;"></div>
+          <input type="file" name="file" id="file-input" class="visually-hidden" required>
+        </label>
+
+        <div style="height:var(--s5);"></div>
+
+        <div class="field">
+          <label for="encoding">Character encoding</label>
+          <select name="encoding" id="encoding">
+            <option value="auto" selected>Detect automatically</option>
+            <option value="ascii">ASCII / Latin-1</option>
+            <option value="ebcdic">EBCDIC (mainframe)</option>
+          </select>
+        </div>
+
+        <div class="mc-only">
+          <div class="checkbox-row" style="margin-bottom:var(--s4);">
+            <input type="checkbox" name="blocked" id="blocked">
+            <label for="blocked">This file uses IBM 1014-byte block framing</label>
+          </div>
+        </div>
+
+        <div class="visa-only" style="display:none;">
+          <div class="field">
+            <label for="visa_format">File format</label>
+            <select name="visa_format" id="visa_format">
+              <option value="ctf" selected>CTF — Center Transaction File, 168-byte records</option>
+              <option value="itf">ITF — Interchange Transaction File, 170-byte records</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="framing">Record framing</label>
+            <select name="framing" id="framing">
+              <option value="auto" selected>Detect automatically</option>
+              <option value="fixed">Fixed-block, no delimiter</option>
+              <option value="lines">Line-delimited (CRLF or LF)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="checkbox-row" style="margin-bottom:var(--s5);">
+          <input type="checkbox" name="include_all" id="include_all">
+          <label for="include_all">
+            <span class="mc-only-inline">Include file header, trailer and other control records in the CSV</span>
+            <span class="visa-only-inline" style="display:none;">Include file header, batch trailer and file trailer in the CSV</span>
+          </label>
+        </div>
+
+        <div class="field mc-only">
+          <label id="role-label">Check this file as</label>
+          <div class="radio-group" role="radiogroup" aria-labelledby="role-label">
+            <label class="radio-row">
+              <input type="radio" name="role" value="org" checked>
+              Originator — a file you are sending
+            </label>
+            <label class="radio-row">
+              <input type="radio" name="role" value="dst">
+              Destination — a file you received
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-filled" style="width:100%; justify-content:center;">
+          <span id="upload-submit-label" style="display:inline-flex; align-items:center; gap:var(--s2);">
+            {{icon "bolt" 16}} Inspect file
+          </span>
+          <span class="upload-loading">
+            <span class="spinner"></span> Reading and checking…
+          </span>
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    function selectScheme(scheme) {
+      document.getElementById('scheme-input').value = scheme;
+      document.querySelectorAll('.scheme-option').forEach(function (el) {
+        var on = el.dataset.scheme === scheme;
+        el.classList.toggle('active', on);
+        el.setAttribute('aria-checked', String(on));
+      });
+      var isVisa = scheme === 'visa';
+      document.querySelectorAll('.mc-only').forEach(function (el) { el.style.display = isVisa ? 'none' : ''; });
+      document.querySelectorAll('.visa-only').forEach(function (el) { el.style.display = isVisa ? '' : 'none'; });
+      document.querySelectorAll('.mc-only-inline').forEach(function (el) { el.style.display = isVisa ? 'none' : ''; });
+      document.querySelectorAll('.visa-only-inline').forEach(function (el) { el.style.display = isVisa ? '' : 'none'; });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,4209 @@
+[
+  {
+    "tcr": "TCR0",
+    "variant": "",
+    "field_count": 35,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 20,
+        "length": 16,
+        "format": "UN",
+        "name": "Account Number"
+      },
+      {
+        "start": 21,
+        "end": 23,
+        "length": 3,
+        "format": "UN",
+        "name": "Account Number Extension"
+      },
+      {
+        "start": 24,
+        "end": 24,
+        "length": 1,
+        "format": "AN",
+        "name": "Floor Limit Indicator"
+      },
+      {
+        "start": 25,
+        "end": 25,
+        "length": 1,
+        "format": "AN",
+        "name": "CRB/Exception File Indicator"
+      },
+      {
+        "start": 26,
+        "end": 26,
+        "length": 1,
+        "format": "AN",
+        "name": "Positive Cardholder Authorization Service (PCAS) Indicator"
+      },
+      {
+        "start": 27,
+        "end": 49,
+        "length": 23,
+        "format": "UN",
+        "name": "Acquirer Reference Number"
+      },
+      {
+        "start": 50,
+        "end": 57,
+        "length": 8,
+        "format": "UN",
+        "name": "Acquirer's Business ID"
+      },
+      {
+        "start": 58,
+        "end": 61,
+        "length": 4,
+        "format": "UN",
+        "name": "Purchase Date (MMDD)"
+      },
+      {
+        "start": 62,
+        "end": 73,
+        "length": 12,
+        "format": "UN",
+        "name": "Destination Amount"
+      },
+      {
+        "start": 74,
+        "end": 76,
+        "length": 3,
+        "format": "AN",
+        "name": "Destination Currency Code"
+      },
+      {
+        "start": 77,
+        "end": 88,
+        "length": 12,
+        "format": "UN",
+        "name": "Source Amount"
+      },
+      {
+        "start": 89,
+        "end": 91,
+        "length": 3,
+        "format": "AN",
+        "name": "Source Currency Code"
+      },
+      {
+        "start": 92,
+        "end": 116,
+        "length": 25,
+        "format": "AN",
+        "name": "Merchant Name"
+      },
+      {
+        "start": 117,
+        "end": 129,
+        "length": 13,
+        "format": "AN",
+        "name": "Merchant City"
+      },
+      {
+        "start": 130,
+        "end": 132,
+        "length": 3,
+        "format": "AN",
+        "name": "Merchant Country Code"
+      },
+      {
+        "start": 133,
+        "end": 136,
+        "length": 4,
+        "format": "UN",
+        "name": "Merchant Category Code"
+      },
+      {
+        "start": 137,
+        "end": 141,
+        "length": 5,
+        "format": "UN",
+        "name": "Merchant ZIP Code"
+      },
+      {
+        "start": 142,
+        "end": 144,
+        "length": 3,
+        "format": "AN",
+        "name": "Merchant State/Province Code"
+      },
+      {
+        "start": 145,
+        "end": 145,
+        "length": 1,
+        "format": "AN",
+        "name": "Requested Payment Service"
+      },
+      {
+        "start": 146,
+        "end": 146,
+        "length": 1,
+        "format": "AN",
+        "name": "Number of Payment Forms"
+      },
+      {
+        "start": 147,
+        "end": 147,
+        "length": 1,
+        "format": "UN",
+        "name": "Usage Code"
+      },
+      {
+        "start": 148,
+        "end": 149,
+        "length": 2,
+        "format": "UN",
+        "name": "Reason Code"
+      },
+      {
+        "start": 150,
+        "end": 150,
+        "length": 1,
+        "format": "UN",
+        "name": "Settlement Flag"
+      },
+      {
+        "start": 151,
+        "end": 151,
+        "length": 1,
+        "format": "AN",
+        "name": "Authorization Characteristics Indicator"
+      },
+      {
+        "start": 152,
+        "end": 157,
+        "length": 6,
+        "format": "AN",
+        "name": "Authorization Code"
+      },
+      {
+        "start": 158,
+        "end": 158,
+        "length": 1,
+        "format": "AN",
+        "name": "POS Terminal Capability"
+      },
+      {
+        "start": 159,
+        "end": 159,
+        "length": 1,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 160,
+        "end": 160,
+        "length": 1,
+        "format": "AN",
+        "name": "Cardholder ID Method"
+      },
+      {
+        "start": 161,
+        "end": 161,
+        "length": 1,
+        "format": "AN",
+        "name": "Collection-Only Flag"
+      },
+      {
+        "start": 162,
+        "end": 163,
+        "length": 2,
+        "format": "AN",
+        "name": "POS Entry Mode"
+      },
+      {
+        "start": 164,
+        "end": 167,
+        "length": 4,
+        "format": "UN",
+        "name": "Central Processing Date (YDDD)"
+      },
+      {
+        "start": 168,
+        "end": 168,
+        "length": 1,
+        "format": "AN",
+        "name": "Reimbursement Attribute"
+      }
+    ],
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR1",
+    "variant": "Additional Data",
+    "field_count": 32,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 5,
+        "length": 1,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 6,
+        "end": 7,
+        "length": 2,
+        "format": "AN",
+        "name": "Token Assurance Level"
+      },
+      {
+        "start": 8,
+        "end": 16,
+        "length": 9,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 22,
+        "length": 6,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 23,
+        "end": 23,
+        "length": 1,
+        "format": "AN",
+        "name": "Documentation Indicator"
+      },
+      {
+        "start": 24,
+        "end": 73,
+        "length": 50,
+        "format": "AN",
+        "name": "Member Message Text"
+      },
+      {
+        "start": 74,
+        "end": 75,
+        "length": 2,
+        "format": "AN",
+        "name": "Special Condition Indicators"
+      },
+      {
+        "start": 76,
+        "end": 78,
+        "length": 3,
+        "format": "AN",
+        "name": "Fee Program Indicator"
+      },
+      {
+        "start": 79,
+        "end": 79,
+        "length": 1,
+        "format": "AN",
+        "name": "Issuer Charge"
+      },
+      {
+        "start": 80,
+        "end": 80,
+        "length": 1,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 81,
+        "end": 95,
+        "length": 15,
+        "format": "AN",
+        "name": "Card Acceptor ID"
+      },
+      {
+        "start": 96,
+        "end": 103,
+        "length": 8,
+        "format": "AN",
+        "name": "Terminal ID"
+      },
+      {
+        "start": 104,
+        "end": 115,
+        "length": 12,
+        "format": "UN",
+        "name": "National Reimbursement Fee"
+      },
+      {
+        "start": 116,
+        "end": 116,
+        "length": 1,
+        "format": "AN",
+        "name": "Mail/Phone/Electronic Commerce and Payment Indicator"
+      },
+      {
+        "start": 117,
+        "end": 117,
+        "length": 1,
+        "format": "AN",
+        "name": "Special Chargeback Indicator"
+      },
+      {
+        "start": 118,
+        "end": 121,
+        "length": 4,
+        "format": "AN",
+        "name": "Conversion Date"
+      },
+      {
+        "start": 122,
+        "end": 123,
+        "length": 2,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 124,
+        "end": 124,
+        "length": 1,
+        "format": "AN",
+        "name": "Acceptance Terminal Indicator"
+      },
+      {
+        "start": 125,
+        "end": 125,
+        "length": 1,
+        "format": "AN",
+        "name": "Prepaid Card Indicator"
+      },
+      {
+        "start": 126,
+        "end": 126,
+        "length": 1,
+        "format": "AN",
+        "name": "Service Development Field"
+      },
+      {
+        "start": 127,
+        "end": 127,
+        "length": 1,
+        "format": "AN",
+        "name": "AVS Response Code"
+      },
+      {
+        "start": 128,
+        "end": 128,
+        "length": 1,
+        "format": "AN",
+        "name": "Authorization Source Code"
+      },
+      {
+        "start": 129,
+        "end": 129,
+        "length": 1,
+        "format": "AN",
+        "name": "Purchase Identifier Format"
+      },
+      {
+        "start": 130,
+        "end": 130,
+        "length": 1,
+        "format": "AN",
+        "name": "Account Selection"
+      },
+      {
+        "start": 131,
+        "end": 132,
+        "length": 2,
+        "format": "AN",
+        "name": "Installment Payment Count"
+      },
+      {
+        "start": 133,
+        "end": 157,
+        "length": 25,
+        "format": "AN",
+        "name": "Purchase Identifier"
+      },
+      {
+        "start": 158,
+        "end": 166,
+        "length": 9,
+        "format": "UN",
+        "name": "Cashback"
+      },
+      {
+        "start": 167,
+        "end": 167,
+        "length": 1,
+        "format": "AN",
+        "name": "Chip Condition Code"
+      },
+      {
+        "start": 168,
+        "end": 168,
+        "length": 1,
+        "format": "AN",
+        "name": "POS Environment"
+      }
+    ],
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Argentina",
+    "field_count": 21,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "UN",
+        "name": "Installment Payment Total Amount"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "National Net Country Code"
+      },
+      {
+        "start": 20,
+        "end": 21,
+        "length": 2,
+        "format": "AN",
+        "name": "Installment Payment Indicator"
+      },
+      {
+        "start": 22,
+        "end": 23,
+        "length": 2,
+        "format": "UN",
+        "name": "Number of Installment Payments"
+      },
+      {
+        "start": 24,
+        "end": 25,
+        "length": 2,
+        "format": "UN",
+        "name": "Installment Payment Number"
+      },
+      {
+        "start": 26,
+        "end": 37,
+        "length": 12,
+        "format": "UN",
+        "name": "Installment Payment Interest Amount"
+      },
+      {
+        "start": 38,
+        "end": 47,
+        "length": 10,
+        "format": "UN",
+        "name": "VAT for Installment Payment Interest Amount"
+      },
+      {
+        "start": 48,
+        "end": 57,
+        "length": 10,
+        "format": "UN",
+        "name": "Installment Payment Risk Fee Amount"
+      },
+      {
+        "start": 58,
+        "end": 67,
+        "length": 10,
+        "format": "UN",
+        "name": "VAT for Installment Payment Risk Fee Amount"
+      },
+      {
+        "start": 68,
+        "end": 68,
+        "length": 1,
+        "format": "AN",
+        "name": "Installment Payment Interest National Net Impact in IRF Calculation – IRF"
+      },
+      {
+        "start": 69,
+        "end": 69,
+        "length": 1,
+        "format": "AN",
+        "name": "Installment Payment Interest National Net Impact – Settlement Indicator"
+      },
+      {
+        "start": 70,
+        "end": 75,
+        "length": 6,
+        "format": "UN",
+        "name": "Deferred Cardholder Billing Date"
+      },
+      {
+        "start": 76,
+        "end": 81,
+        "length": 6,
+        "format": "UN",
+        "name": "Deferred Settlement Date"
+      },
+      {
+        "start": 82,
+        "end": 93,
+        "length": 12,
+        "format": "UN",
+        "name": "Tip Amount"
+      },
+      {
+        "start": 94,
+        "end": 103,
+        "length": 10,
+        "format": "UN",
+        "name": "Interchange Reimbursement Fee (IRF)"
+      },
+      {
+        "start": 104,
+        "end": 113,
+        "length": 10,
+        "format": "UN",
+        "name": "VAT National Reimbursement Fee"
+      },
+      {
+        "start": 114,
+        "end": 133,
+        "length": 20,
+        "format": "AN",
+        "name": "Promotion Data"
+      },
+      {
+        "start": 134,
+        "end": 168,
+        "length": 35,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "AR",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Brazil",
+    "field_count": 14,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 22,
+        "length": 3,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 23,
+        "end": 25,
+        "length": 3,
+        "format": "UN",
+        "name": "Settlement Type"
+      },
+      {
+        "start": 26,
+        "end": 35,
+        "length": 10,
+        "format": "AN",
+        "name": "National Reimbursement Fee"
+      },
+      {
+        "start": 36,
+        "end": 39,
+        "length": 4,
+        "format": "UN",
+        "name": "National Net CPD of Original (YDDD)"
+      },
+      {
+        "start": 40,
+        "end": 41,
+        "length": 2,
+        "format": "AN",
+        "name": "Installment Payment Count"
+      },
+      {
+        "start": 42,
+        "end": 46,
+        "length": 5,
+        "format": "AN",
+        "name": "Special Merchant Identifier"
+      },
+      {
+        "start": 47,
+        "end": 47,
+        "length": 1,
+        "format": "AN",
+        "name": "Special Purchase Identifier"
+      },
+      {
+        "start": 48,
+        "end": 62,
+        "length": 15,
+        "format": "AN",
+        "name": "Merchant Tax ID Number"
+      },
+      {
+        "start": 63,
+        "end": 168,
+        "length": 106,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "BR",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Chile",
+    "field_count": 21,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 5,
+        "length": 1,
+        "format": "AN",
+        "name": "Sale Type Indicator"
+      },
+      {
+        "start": 6,
+        "end": 8,
+        "length": 3,
+        "format": "UN",
+        "name": "Number of Installment Payments"
+      },
+      {
+        "start": 9,
+        "end": 11,
+        "length": 3,
+        "format": "UN",
+        "name": "Installment Payment Number"
+      },
+      {
+        "start": 12,
+        "end": 12,
+        "length": 1,
+        "format": "AN",
+        "name": "Issuer Promo Flag"
+      },
+      {
+        "start": 13,
+        "end": 13,
+        "length": 1,
+        "format": "AN",
+        "name": "Deferred Flag"
+      },
+      {
+        "start": 14,
+        "end": 14,
+        "length": 1,
+        "format": "AN",
+        "name": "Deferred Period"
+      },
+      {
+        "start": 15,
+        "end": 15,
+        "length": 1,
+        "format": "AN",
+        "name": "Grace Period Flag"
+      },
+      {
+        "start": 16,
+        "end": 16,
+        "length": 1,
+        "format": "AN",
+        "name": "Grace Period"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 31,
+        "length": 12,
+        "format": "UN",
+        "name": "Installment Payment Total Amount"
+      },
+      {
+        "start": 32,
+        "end": 43,
+        "length": 12,
+        "format": "UN",
+        "name": "Installment Payment Amount"
+      },
+      {
+        "start": 44,
+        "end": 48,
+        "length": 5,
+        "format": "UN",
+        "name": "Installment Interest Rate"
+      },
+      {
+        "start": 49,
+        "end": 52,
+        "length": 4,
+        "format": "UN",
+        "name": "VAT Rate"
+      },
+      {
+        "start": 53,
+        "end": 64,
+        "length": 12,
+        "format": "UN",
+        "name": "Interchange Reimbursement Fee (IRF)"
+      },
+      {
+        "start": 65,
+        "end": 76,
+        "length": 12,
+        "format": "UN",
+        "name": "VAT National Reimbursement Fee"
+      },
+      {
+        "start": 77,
+        "end": 82,
+        "length": 6,
+        "format": "UN",
+        "name": "Deferred Settlement Date"
+      },
+      {
+        "start": 83,
+        "end": 88,
+        "length": 6,
+        "format": "UN",
+        "name": "Deferred Settlement Date of the Original"
+      },
+      {
+        "start": 89,
+        "end": 168,
+        "length": 80,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "CL",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Colombia",
+    "field_count": 18,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 20,
+        "length": 1,
+        "format": "AN",
+        "name": "National Net Miscellaneous Amount Type"
+      },
+      {
+        "start": 21,
+        "end": 21,
+        "length": 1,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 22,
+        "end": 75,
+        "length": 54,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 76,
+        "end": 84,
+        "length": 9,
+        "format": "UN",
+        "name": "National Net Miscellaneous Amount"
+      },
+      {
+        "start": 85,
+        "end": 87,
+        "length": 3,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 88,
+        "end": 95,
+        "length": 8,
+        "format": "UN",
+        "name": "Amount Base of Add Value Tax to Return"
+      },
+      {
+        "start": 96,
+        "end": 104,
+        "length": 9,
+        "format": "UN",
+        "name": "Consumption Tax Amount"
+      },
+      {
+        "start": 105,
+        "end": 113,
+        "length": 9,
+        "format": "UN",
+        "name": "Add Value Tax Amount"
+      },
+      {
+        "start": 114,
+        "end": 114,
+        "length": 1,
+        "format": "UN",
+        "name": "Cost Transaction Indicator"
+      },
+      {
+        "start": 115,
+        "end": 115,
+        "length": 1,
+        "format": "UN",
+        "name": "EMV Transaction Indicator"
+      },
+      {
+        "start": 116,
+        "end": 116,
+        "length": 1,
+        "format": "UN",
+        "name": "Reserved"
+      },
+      {
+        "start": 117,
+        "end": 118,
+        "length": 2,
+        "format": "AN",
+        "name": "National Dispute Reason Code"
+      },
+      {
+        "start": 119,
+        "end": 168,
+        "length": 50,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "CO",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Japan",
+    "field_count": 23,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 5,
+        "length": 1,
+        "format": "UN",
+        "name": "Number of Bonus Payments"
+      },
+      {
+        "start": 6,
+        "end": 6,
+        "length": 1,
+        "format": "AN",
+        "name": "Bonus Month Sign"
+      },
+      {
+        "start": 7,
+        "end": 10,
+        "length": 4,
+        "format": "UN",
+        "name": "Bonus Amount"
+      },
+      {
+        "start": 11,
+        "end": 14,
+        "length": 4,
+        "format": "UN",
+        "name": "National Net CPD of Original"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 22,
+        "length": 3,
+        "format": "UN",
+        "name": "Number of Installment Payments"
+      },
+      {
+        "start": 23,
+        "end": 24,
+        "length": 2,
+        "format": "UN",
+        "name": "Payment Mode"
+      },
+      {
+        "start": 25,
+        "end": 25,
+        "length": 1,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 26,
+        "end": 33,
+        "length": 8,
+        "format": "UN",
+        "name": "Net Sales Amount"
+      },
+      {
+        "start": 34,
+        "end": 41,
+        "length": 8,
+        "format": "UN",
+        "name": "Tax and Mailing Charge"
+      },
+      {
+        "start": 42,
+        "end": 58,
+        "length": 17,
+        "format": "UN",
+        "name": "Sales Draft Reference Number"
+      },
+      {
+        "start": 59,
+        "end": 73,
+        "length": 15,
+        "format": "AN",
+        "name": "Acquiring Bank/Merchant Number"
+      },
+      {
+        "start": 74,
+        "end": 96,
+        "length": 23,
+        "format": "AN",
+        "name": "Merchant Name—Katakana"
+      },
+      {
+        "start": 97,
+        "end": 98,
+        "length": 2,
+        "format": "AN",
+        "name": "National Dispute Reason Code"
+      },
+      {
+        "start": 99,
+        "end": 138,
+        "length": 40,
+        "format": "AN",
+        "name": "Merchant Name—Kanji"
+      },
+      {
+        "start": 139,
+        "end": 139,
+        "length": 1,
+        "format": "UN",
+        "name": "Net/Gross Flag"
+      },
+      {
+        "start": 140,
+        "end": 159,
+        "length": 20,
+        "format": "AN",
+        "name": "Text Message"
+      },
+      {
+        "start": 160,
+        "end": 167,
+        "length": 8,
+        "format": "UN",
+        "name": "Acquirer's Invoice Amount"
+      },
+      {
+        "start": 168,
+        "end": 168,
+        "length": 1,
+        "format": "UN",
+        "name": "Bonus Code"
+      }
+    ],
+    "country_hint": "JP",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Mexico",
+    "field_count": 19,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 21,
+        "length": 2,
+        "format": "AN",
+        "name": "Account Type"
+      },
+      {
+        "start": 22,
+        "end": 22,
+        "length": 1,
+        "format": "UN",
+        "name": "IRF Type"
+      },
+      {
+        "start": 23,
+        "end": 24,
+        "length": 2,
+        "format": "UN",
+        "name": "IRF Category"
+      },
+      {
+        "start": 25,
+        "end": 34,
+        "length": 10,
+        "format": "UN",
+        "name": "VAT on IRF"
+      },
+      {
+        "start": 35,
+        "end": 47,
+        "length": 13,
+        "format": "AN",
+        "name": "Merchant Fiscal ID (RFC)"
+      },
+      {
+        "start": 48,
+        "end": 48,
+        "length": 1,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 49,
+        "end": 51,
+        "length": 3,
+        "format": "UN",
+        "name": "Number of Installment Payments"
+      },
+      {
+        "start": 52,
+        "end": 54,
+        "length": 3,
+        "format": "UN",
+        "name": "Grace Period"
+      },
+      {
+        "start": 55,
+        "end": 55,
+        "length": 1,
+        "format": "AN",
+        "name": "Frequency of Payment"
+      },
+      {
+        "start": 56,
+        "end": 67,
+        "length": 12,
+        "format": "UN",
+        "name": "Installment Payment Interest"
+      },
+      {
+        "start": 68,
+        "end": 77,
+        "length": 10,
+        "format": "UN",
+        "name": "VAT for Installment Payment Interest"
+      },
+      {
+        "start": 78,
+        "end": 80,
+        "length": 3,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 81,
+        "end": 82,
+        "length": 2,
+        "format": "UN",
+        "name": "Installment Payment Type"
+      },
+      {
+        "start": 83,
+        "end": 168,
+        "length": 86,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "MX",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Russia (NSPK Only)",
+    "field_count": 9,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 20,
+        "length": 1,
+        "format": "UN",
+        "name": "Merchant Tax ID Type"
+      },
+      {
+        "start": 21,
+        "end": 40,
+        "length": 20,
+        "format": "AN",
+        "name": "Merchant Tax ID"
+      },
+      {
+        "start": 41,
+        "end": 49,
+        "length": 9,
+        "format": "AN",
+        "name": "Merchant Postal Code"
+      },
+      {
+        "start": 50,
+        "end": 168,
+        "length": 119,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "RU",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "South Korea",
+    "field_count": 21,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 22,
+        "length": 3,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 23,
+        "end": 23,
+        "length": 1,
+        "format": "UN",
+        "name": "Payment Code"
+      },
+      {
+        "start": 24,
+        "end": 25,
+        "length": 2,
+        "format": "UN",
+        "name": "Number of Payments"
+      },
+      {
+        "start": 26,
+        "end": 28,
+        "length": 3,
+        "format": "UN",
+        "name": "Merchant Discount Rate"
+      },
+      {
+        "start": 29,
+        "end": 60,
+        "length": 32,
+        "format": "AN",
+        "name": "Merchant Name - Korean"
+      },
+      {
+        "start": 61,
+        "end": 72,
+        "length": 12,
+        "format": "AN",
+        "name": "Merchant Location - Korean"
+      },
+      {
+        "start": 73,
+        "end": 82,
+        "length": 10,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 83,
+        "end": 86,
+        "length": 4,
+        "format": "UN",
+        "name": "Merchant Type"
+      },
+      {
+        "start": 87,
+        "end": 94,
+        "length": 8,
+        "format": "UN",
+        "name": "Local Authorization Number"
+      },
+      {
+        "start": 95,
+        "end": 96,
+        "length": 2,
+        "format": "AN",
+        "name": "Local Dispute Reason Code"
+      },
+      {
+        "start": 97,
+        "end": 98,
+        "length": 2,
+        "format": "UN",
+        "name": "Interchange Reimbursement Fee Multiplier"
+      },
+      {
+        "start": 99,
+        "end": 106,
+        "length": 8,
+        "format": "UN",
+        "name": "Purchase Date"
+      },
+      {
+        "start": 107,
+        "end": 121,
+        "length": 15,
+        "format": "UN",
+        "name": "Merchant ID"
+      },
+      {
+        "start": 122,
+        "end": 123,
+        "length": 2,
+        "format": "UN",
+        "name": "Payment Method"
+      },
+      {
+        "start": 124,
+        "end": 125,
+        "length": 2,
+        "format": "AN",
+        "name": "Card Type Local"
+      },
+      {
+        "start": 126,
+        "end": 168,
+        "length": 43,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "KR",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Sweden",
+    "field_count": 13,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 31,
+        "length": 12,
+        "format": "UN",
+        "name": "National Tax"
+      },
+      {
+        "start": 32,
+        "end": 32,
+        "length": 1,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 33,
+        "end": 34,
+        "length": 2,
+        "format": "AN",
+        "name": "Payment Indicator"
+      },
+      {
+        "start": 35,
+        "end": 49,
+        "length": 15,
+        "format": "UN",
+        "name": "National Merchant ID"
+      },
+      {
+        "start": 50,
+        "end": 74,
+        "length": 25,
+        "format": "AN",
+        "name": "Merchant Name"
+      },
+      {
+        "start": 75,
+        "end": 87,
+        "length": 13,
+        "format": "AN",
+        "name": "Merchant City"
+      },
+      {
+        "start": 88,
+        "end": 117,
+        "length": 30,
+        "format": "AN",
+        "name": "Department ID"
+      },
+      {
+        "start": 118,
+        "end": 168,
+        "length": 51,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "SE",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR2",
+    "variant": "Turkey",
+    "field_count": 12,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "AN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 19,
+        "length": 3,
+        "format": "AN",
+        "name": "Country Code"
+      },
+      {
+        "start": 20,
+        "end": 44,
+        "length": 25,
+        "format": "AN",
+        "name": "Merchant Name – Turkish"
+      },
+      {
+        "start": 45,
+        "end": 57,
+        "length": 13,
+        "format": "AN",
+        "name": "Merchant Location – Turkish"
+      },
+      {
+        "start": 58,
+        "end": 65,
+        "length": 8,
+        "format": "UN",
+        "name": "Central Merchant Identifier (CMI)"
+      },
+      {
+        "start": 66,
+        "end": 66,
+        "length": 1,
+        "format": "AN",
+        "name": "CMI Valid Indicator"
+      },
+      {
+        "start": 67,
+        "end": 70,
+        "length": 4,
+        "format": "UN",
+        "name": "Acquiring Institution Code – EFT"
+      },
+      {
+        "start": 71,
+        "end": 71,
+        "length": 1,
+        "format": "AN",
+        "name": "Type of ATM"
+      },
+      {
+        "start": 72,
+        "end": 168,
+        "length": 97,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "country_hint": "TR",
+    "auto_classifiable": false
+  },
+  {
+    "tcr": "TCR3",
+    "variant": "Industry-Specific Data",
+    "field_count": 6,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 19,
+        "end": 168,
+        "length": 150,
+        "format": "AN",
+        "name": "Data Content (dependent on Business Format Code)"
+      }
+    ],
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR3",
+    "variant": "Passenger-Itinerary Data",
+    "field_count": 25,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 14,
+        "length": 10,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Application ID"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code (AI)"
+      },
+      {
+        "start": 19,
+        "end": 26,
+        "length": 8,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 27,
+        "end": 46,
+        "length": 20,
+        "format": "AN",
+        "name": "Passenger Name"
+      },
+      {
+        "start": 47,
+        "end": 52,
+        "length": 6,
+        "format": "UN",
+        "name": "Departure Date (MMDDYY)"
+      },
+      {
+        "start": 53,
+        "end": 55,
+        "length": 3,
+        "format": "AN",
+        "name": "Origination City/Airport Code"
+      },
+      {
+        "start": 84,
+        "end": 91,
+        "length": 8,
+        "format": "AN",
+        "name": "Travel Agency Code"
+      },
+      {
+        "start": 92,
+        "end": 116,
+        "length": 25,
+        "format": "AN",
+        "name": "Travel Agency Name"
+      },
+      {
+        "start": 117,
+        "end": 117,
+        "length": 1,
+        "format": "AN",
+        "name": "Restricted Ticket Indicator"
+      },
+      {
+        "start": 118,
+        "end": 123,
+        "length": 6,
+        "format": "AN",
+        "name": "Fare Basis Code - Leg 1"
+      },
+      {
+        "start": 124,
+        "end": 129,
+        "length": 6,
+        "format": "AN",
+        "name": "Fare Basis Code - Leg 2"
+      },
+      {
+        "start": 130,
+        "end": 135,
+        "length": 6,
+        "format": "AN",
+        "name": "Fare Basis Code - Leg 3"
+      },
+      {
+        "start": 136,
+        "end": 141,
+        "length": 6,
+        "format": "AN",
+        "name": "Fare Basis Code - Leg 4"
+      },
+      {
+        "start": 142,
+        "end": 145,
+        "length": 4,
+        "format": "AN",
+        "name": "Computerized Reservation System"
+      },
+      {
+        "start": 146,
+        "end": 150,
+        "length": 5,
+        "format": "AN",
+        "name": "Flight Number - Leg 1"
+      },
+      {
+        "start": 151,
+        "end": 155,
+        "length": 5,
+        "format": "AN",
+        "name": "Flight Number - Leg 2"
+      },
+      {
+        "start": 156,
+        "end": 160,
+        "length": 5,
+        "format": "AN",
+        "name": "Flight Number - Leg 3"
+      },
+      {
+        "start": 161,
+        "end": 165,
+        "length": 5,
+        "format": "AN",
+        "name": "Flight Number - Leg 4"
+      },
+      {
+        "start": 166,
+        "end": 166,
+        "length": 1,
+        "format": "AN",
+        "name": "Credit Reason Indicator"
+      },
+      {
+        "start": 167,
+        "end": 167,
+        "length": 1,
+        "format": "AN",
+        "name": "Ticket Change Indicator"
+      },
+      {
+        "start": 168,
+        "end": 168,
+        "length": 1,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 17,
+      "field_end": 18,
+      "value": "AI"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR3",
+    "variant": "Passenger Transport Ancillary Data",
+    "field_count": 19,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 14,
+        "length": 10,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Application ID"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code (AN)"
+      },
+      {
+        "start": 19,
+        "end": 33,
+        "length": 15,
+        "format": "AN",
+        "name": "Ancillary Ticket Document Number"
+      },
+      {
+        "start": 34,
+        "end": 37,
+        "length": 4,
+        "format": "AN",
+        "name": "Ancillary Service Category 1"
+      },
+      {
+        "start": 38,
+        "end": 41,
+        "length": 4,
+        "format": "AN",
+        "name": "Ancillary Service Sub-Category 1"
+      },
+      {
+        "start": 42,
+        "end": 45,
+        "length": 4,
+        "format": "AN",
+        "name": "Ancillary Service Category 2"
+      },
+      {
+        "start": 46,
+        "end": 49,
+        "length": 4,
+        "format": "AN",
+        "name": "Ancillary Service Sub-Category 2"
+      },
+      {
+        "start": 50,
+        "end": 53,
+        "length": 4,
+        "format": "AN",
+        "name": "Ancillary Service Category 3"
+      },
+      {
+        "start": 54,
+        "end": 57,
+        "length": 4,
+        "format": "AN",
+        "name": "Ancillary Service Sub-Category 3"
+      },
+      {
+        "start": 58,
+        "end": 61,
+        "length": 4,
+        "format": "AN",
+        "name": "Ancillary Service Category 4"
+      },
+      {
+        "start": 62,
+        "end": 65,
+        "length": 4,
+        "format": "AN",
+        "name": "Ancillary Service Sub-Category 4"
+      },
+      {
+        "start": 66,
+        "end": 85,
+        "length": 20,
+        "format": "AN",
+        "name": "Passenger Name"
+      },
+      {
+        "start": 86,
+        "end": 100,
+        "length": 15,
+        "format": "AN",
+        "name": "Issued in Connection With Ticket Number"
+      },
+      {
+        "start": 101,
+        "end": 101,
+        "length": 1,
+        "format": "AN",
+        "name": "Credit Reason Indicator"
+      },
+      {
+        "start": 102,
+        "end": 168,
+        "length": 67,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 17,
+      "field_end": 18,
+      "value": "AN"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR3",
+    "variant": "Lodging",
+    "field_count": 19,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 14,
+        "length": 10,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Application ID"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code (LG)"
+      },
+      {
+        "start": 19,
+        "end": 26,
+        "length": 8,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 27,
+        "end": 27,
+        "length": 1,
+        "format": "AN",
+        "name": "Lodging No-Show Indicator"
+      },
+      {
+        "start": 28,
+        "end": 33,
+        "length": 6,
+        "format": "UN",
+        "name": "Lodging Extra Charges"
+      },
+      {
+        "start": 34,
+        "end": 37,
+        "length": 4,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 38,
+        "end": 43,
+        "length": 6,
+        "format": "UN",
+        "name": "Lodging Check-in Date (YYMMDD)"
+      },
+      {
+        "start": 44,
+        "end": 55,
+        "length": 12,
+        "format": "UN",
+        "name": "Daily Room Rate"
+      },
+      {
+        "start": 56,
+        "end": 67,
+        "length": 12,
+        "format": "UN",
+        "name": "Total Tax"
+      },
+      {
+        "start": 68,
+        "end": 79,
+        "length": 12,
+        "format": "UN",
+        "name": "Prepaid Expenses"
+      },
+      {
+        "start": 80,
+        "end": 91,
+        "length": 12,
+        "format": "UN",
+        "name": "Food/Beverage Charges"
+      },
+      {
+        "start": 92,
+        "end": 103,
+        "length": 12,
+        "format": "UN",
+        "name": "Folio Cash Advances"
+      },
+      {
+        "start": 104,
+        "end": 105,
+        "length": 2,
+        "format": "UN",
+        "name": "Room Nights"
+      },
+      {
+        "start": 106,
+        "end": 117,
+        "length": 12,
+        "format": "UN",
+        "name": "Total Room Tax"
+      },
+      {
+        "start": 118,
+        "end": 168,
+        "length": 51,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 17,
+      "field_end": 18,
+      "value": "LG"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR3",
+    "variant": "Car Rental",
+    "field_count": 20,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 14,
+        "length": 10,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Application ID"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code (CA)"
+      },
+      {
+        "start": 19,
+        "end": 20,
+        "length": 2,
+        "format": "UN",
+        "name": "Days Rented"
+      },
+      {
+        "start": 21,
+        "end": 26,
+        "length": 6,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 27,
+        "end": 27,
+        "length": 1,
+        "format": "AN",
+        "name": "Car Rental No-Show Indicator"
+      },
+      {
+        "start": 28,
+        "end": 33,
+        "length": 6,
+        "format": "UN",
+        "name": "Car Rental Extra Charges"
+      },
+      {
+        "start": 34,
+        "end": 37,
+        "length": 4,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 38,
+        "end": 43,
+        "length": 6,
+        "format": "UN",
+        "name": "Car Rental Check-out Date (YYMMDD)"
+      },
+      {
+        "start": 44,
+        "end": 55,
+        "length": 12,
+        "format": "UN",
+        "name": "Daily Rental Rate"
+      },
+      {
+        "start": 56,
+        "end": 67,
+        "length": 12,
+        "format": "UN",
+        "name": "Weekly Rental Rate"
+      },
+      {
+        "start": 68,
+        "end": 79,
+        "length": 12,
+        "format": "UN",
+        "name": "Insurance Charges"
+      },
+      {
+        "start": 80,
+        "end": 91,
+        "length": 12,
+        "format": "UN",
+        "name": "Fuel Charges"
+      },
+      {
+        "start": 92,
+        "end": 93,
+        "length": 2,
+        "format": "AN",
+        "name": "Car Class Code"
+      },
+      {
+        "start": 94,
+        "end": 105,
+        "length": 12,
+        "format": "UN",
+        "name": "One-Way Drop-off Charges"
+      },
+      {
+        "start": 106,
+        "end": 145,
+        "length": 40,
+        "format": "AN",
+        "name": "Renter Name"
+      },
+      {
+        "start": 146,
+        "end": 168,
+        "length": 23,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 17,
+      "field_end": 18,
+      "value": "CA"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR3",
+    "variant": "Fleet Service",
+    "field_count": 27,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 14,
+        "length": 10,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Application ID"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code (FL)"
+      },
+      {
+        "start": 19,
+        "end": 22,
+        "length": 4,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 23,
+        "end": 26,
+        "length": 4,
+        "format": "AN",
+        "name": "Expanded Fuel Type"
+      },
+      {
+        "start": 27,
+        "end": 27,
+        "length": 1,
+        "format": "AN",
+        "name": "Type of Purchase"
+      },
+      {
+        "start": 28,
+        "end": 29,
+        "length": 2,
+        "format": "AN",
+        "name": "Fuel Type"
+      },
+      {
+        "start": 30,
+        "end": 30,
+        "length": 1,
+        "format": "AN",
+        "name": "Unit of Measure"
+      },
+      {
+        "start": 31,
+        "end": 42,
+        "length": 12,
+        "format": "UN",
+        "name": "Quantity"
+      },
+      {
+        "start": 43,
+        "end": 54,
+        "length": 12,
+        "format": "UN",
+        "name": "Unit Cost"
+      },
+      {
+        "start": 55,
+        "end": 66,
+        "length": 12,
+        "format": "UN",
+        "name": "Gross Fuel Price"
+      },
+      {
+        "start": 67,
+        "end": 78,
+        "length": 12,
+        "format": "UN",
+        "name": "Net Fuel Price"
+      },
+      {
+        "start": 79,
+        "end": 90,
+        "length": 12,
+        "format": "UN",
+        "name": "Gross Non-Fuel Price"
+      },
+      {
+        "start": 91,
+        "end": 102,
+        "length": 12,
+        "format": "UN",
+        "name": "Net Non-Fuel Price"
+      },
+      {
+        "start": 103,
+        "end": 109,
+        "length": 7,
+        "format": "AN",
+        "name": "Odometer Reading"
+      },
+      {
+        "start": 110,
+        "end": 113,
+        "length": 4,
+        "format": "UN",
+        "name": "VAT/Tax Rate"
+      },
+      {
+        "start": 114,
+        "end": 125,
+        "length": 12,
+        "format": "UN",
+        "name": "Miscellaneous Fuel Tax"
+      },
+      {
+        "start": 126,
+        "end": 131,
+        "length": 6,
+        "format": "AN",
+        "name": "Product Qualifier"
+      },
+      {
+        "start": 132,
+        "end": 137,
+        "length": 6,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 138,
+        "end": 149,
+        "length": 12,
+        "format": "UN",
+        "name": "Miscellaneous Non-Fuel Tax"
+      },
+      {
+        "start": 150,
+        "end": 150,
+        "length": 1,
+        "format": "AN",
+        "name": "Service Type"
+      },
+      {
+        "start": 151,
+        "end": 151,
+        "length": 1,
+        "format": "AN",
+        "name": "Miscellaneous Fuel Tax Exemption Status"
+      },
+      {
+        "start": 152,
+        "end": 152,
+        "length": 1,
+        "format": "AN",
+        "name": "Miscellaneous Non-Fuel Tax Exemption Status"
+      },
+      {
+        "start": 153,
+        "end": 168,
+        "length": 16,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 17,
+      "field_end": 18,
+      "value": "FL"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR3",
+    "variant": "Loan Detail",
+    "field_count": 12,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 19,
+        "end": 22,
+        "length": 4,
+        "format": "AN",
+        "name": "Cardholder Tax ID Type"
+      },
+      {
+        "start": 23,
+        "end": 37,
+        "length": 15,
+        "format": "AN",
+        "name": "Cardholder Tax ID"
+      },
+      {
+        "start": 38,
+        "end": 39,
+        "length": 2,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 40,
+        "end": 40,
+        "length": 1,
+        "format": "AN",
+        "name": "Asset Indicator"
+      },
+      {
+        "start": 41,
+        "end": 60,
+        "length": 20,
+        "format": "AN",
+        "name": "Loan Type"
+      },
+      {
+        "start": 61,
+        "end": 66,
+        "length": 6,
+        "format": "AN",
+        "name": "Merchant Program Identifier"
+      },
+      {
+        "start": 67,
+        "end": 168,
+        "length": 102,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 17,
+      "field_end": 18,
+      "value": "LD"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR3",
+    "variant": "Business Application Data",
+    "field_count": 16,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 15,
+        "length": 11,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 16,
+        "end": 16,
+        "length": 1,
+        "format": "AN",
+        "name": "Fast Funds Indicator"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 19,
+        "end": 20,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Application ID"
+      },
+      {
+        "start": 21,
+        "end": 21,
+        "length": 1,
+        "format": "AN",
+        "name": "Source of Funds"
+      },
+      {
+        "start": 22,
+        "end": 23,
+        "length": 2,
+        "format": "AN",
+        "name": "Payment Reversal Reason Code"
+      },
+      {
+        "start": 24,
+        "end": 39,
+        "length": 16,
+        "format": "AN",
+        "name": "Sender Reference Number"
+      },
+      {
+        "start": 40,
+        "end": 73,
+        "length": 34,
+        "format": "AN",
+        "name": "Sender Account Number"
+      },
+      {
+        "start": 74,
+        "end": 103,
+        "length": 30,
+        "format": "AN",
+        "name": "Sender Name"
+      },
+      {
+        "start": 104,
+        "end": 138,
+        "length": 35,
+        "format": "AN",
+        "name": "Sender Address"
+      },
+      {
+        "start": 139,
+        "end": 163,
+        "length": 25,
+        "format": "AN",
+        "name": "Sender City"
+      },
+      {
+        "start": 164,
+        "end": 165,
+        "length": 2,
+        "format": "AN",
+        "name": "Sender State"
+      },
+      {
+        "start": 166,
+        "end": 168,
+        "length": 3,
+        "format": "AN",
+        "name": "Sender Country"
+      }
+    ],
+    "discriminator": {
+      "field_start": 17,
+      "field_end": 18,
+      "value": "CR"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR4",
+    "variant": "Supplemental Financial Data",
+    "field_count": 19,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 9,
+        "length": 5,
+        "format": "AN",
+        "name": "Agent Unique ID"
+      },
+      {
+        "start": 10,
+        "end": 14,
+        "length": 5,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 17,
+        "end": 20,
+        "length": 4,
+        "format": "UN",
+        "name": "Network Identification Code"
+      },
+      {
+        "start": 21,
+        "end": 45,
+        "length": 25,
+        "format": "AN",
+        "name": "Contact for Information"
+      },
+      {
+        "start": 46,
+        "end": 46,
+        "length": 1,
+        "format": "AN",
+        "name": "Adjustment Processing Indicator"
+      },
+      {
+        "start": 47,
+        "end": 50,
+        "length": 4,
+        "format": "AN",
+        "name": "Message Reason Code"
+      },
+      {
+        "start": 51,
+        "end": 58,
+        "length": 8,
+        "format": "UN",
+        "name": "Surcharge Amount"
+      },
+      {
+        "start": 59,
+        "end": 60,
+        "length": 2,
+        "format": "AN",
+        "name": "Surcharge Credit/Debit Indicator"
+      },
+      {
+        "start": 61,
+        "end": 76,
+        "length": 16,
+        "format": "AN",
+        "name": "Visa_Internal_Use_Only"
+      },
+      {
+        "start": 77,
+        "end": 103,
+        "length": 27,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 104,
+        "end": 111,
+        "length": 8,
+        "format": "UN",
+        "name": "Surcharge Amount in Cardholder Billing Currency"
+      },
+      {
+        "start": 112,
+        "end": 119,
+        "length": 8,
+        "format": "UN",
+        "name": "Money Transfer Foreign Exchange Fee"
+      },
+      {
+        "start": 120,
+        "end": 148,
+        "length": 29,
+        "format": "AN",
+        "name": "Payment Account Reference"
+      },
+      {
+        "start": 149,
+        "end": 159,
+        "length": 11,
+        "format": "UN",
+        "name": "Token Requestor ID"
+      },
+      {
+        "start": 160,
+        "end": 168,
+        "length": 9,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 15,
+      "field_end": 16,
+      "value": "SD"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR4",
+    "variant": "Supplemental Financial and Promotion Data",
+    "field_count": 19,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 9,
+        "length": 5,
+        "format": "AN",
+        "name": "Agent Unique ID"
+      },
+      {
+        "start": 10,
+        "end": 14,
+        "length": 5,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 17,
+        "end": 20,
+        "length": 4,
+        "format": "UN",
+        "name": "Network Identification Code"
+      },
+      {
+        "start": 21,
+        "end": 45,
+        "length": 25,
+        "format": "AN",
+        "name": "Contact Information"
+      },
+      {
+        "start": 46,
+        "end": 46,
+        "length": 1,
+        "format": "AN",
+        "name": "Adjustment Processing Indicator"
+      },
+      {
+        "start": 47,
+        "end": 50,
+        "length": 4,
+        "format": "AN",
+        "name": "Message Reason Code"
+      },
+      {
+        "start": 51,
+        "end": 58,
+        "length": 8,
+        "format": "UN",
+        "name": "Surcharge Amount"
+      },
+      {
+        "start": 59,
+        "end": 60,
+        "length": 2,
+        "format": "AN",
+        "name": "Surcharge Credit/Debit Indicator"
+      },
+      {
+        "start": 61,
+        "end": 76,
+        "length": 16,
+        "format": "AN",
+        "name": "Visa_Internal_Use_Only"
+      },
+      {
+        "start": 77,
+        "end": 78,
+        "length": 2,
+        "format": "AN",
+        "name": "Promotion Type"
+      },
+      {
+        "start": 79,
+        "end": 103,
+        "length": 25,
+        "format": "AN",
+        "name": "Promotion Code"
+      },
+      {
+        "start": 104,
+        "end": 111,
+        "length": 8,
+        "format": "UN",
+        "name": "Surcharge Amount in Cardholder Billing Currency"
+      },
+      {
+        "start": 112,
+        "end": 140,
+        "length": 29,
+        "format": "AN",
+        "name": "Payment Account Reference"
+      },
+      {
+        "start": 141,
+        "end": 151,
+        "length": 11,
+        "format": "UN",
+        "name": "Token Requestor ID"
+      },
+      {
+        "start": 152,
+        "end": 168,
+        "length": 17,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 15,
+      "field_end": 16,
+      "value": "SP"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR4",
+    "variant": "Promotion Data",
+    "field_count": 8,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 14,
+        "length": 10,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 17,
+        "end": 18,
+        "length": 2,
+        "format": "AN",
+        "name": "Promotion Type"
+      },
+      {
+        "start": 19,
+        "end": 43,
+        "length": 25,
+        "format": "AN",
+        "name": "Promotion Code"
+      },
+      {
+        "start": 44,
+        "end": 168,
+        "length": 125,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 15,
+      "field_end": 16,
+      "value": "PD"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR4",
+    "variant": "Supplemental VROL Financial Data",
+    "field_count": 19,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 9,
+        "length": 5,
+        "format": "AN",
+        "name": "Agent Unique ID"
+      },
+      {
+        "start": 10,
+        "end": 14,
+        "length": 5,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 15,
+        "end": 16,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 17,
+        "end": 20,
+        "length": 4,
+        "format": "UN",
+        "name": "Network Identification Code"
+      },
+      {
+        "start": 21,
+        "end": 45,
+        "length": 25,
+        "format": "AN",
+        "name": "Contact for Information"
+      },
+      {
+        "start": 46,
+        "end": 46,
+        "length": 1,
+        "format": "AN",
+        "name": "Adjustment Processing Indicator"
+      },
+      {
+        "start": 47,
+        "end": 50,
+        "length": 4,
+        "format": "AN",
+        "name": "Message Reason Code"
+      },
+      {
+        "start": 51,
+        "end": 53,
+        "length": 3,
+        "format": "AN",
+        "name": "Dispute Condition"
+      },
+      {
+        "start": 54,
+        "end": 64,
+        "length": 11,
+        "format": "AN",
+        "name": "VROL Financial ID"
+      },
+      {
+        "start": 65,
+        "end": 74,
+        "length": 10,
+        "format": "UN",
+        "name": "VROL Case Number"
+      },
+      {
+        "start": 75,
+        "end": 84,
+        "length": 10,
+        "format": "UN",
+        "name": "VROL Bundle Case Number"
+      },
+      {
+        "start": 85,
+        "end": 104,
+        "length": 20,
+        "format": "AN",
+        "name": "Client Case Number"
+      },
+      {
+        "start": 105,
+        "end": 106,
+        "length": 2,
+        "format": "AN",
+        "name": "Dispute Status"
+      },
+      {
+        "start": 107,
+        "end": 114,
+        "length": 8,
+        "format": "UN",
+        "name": "Surcharge Amount"
+      },
+      {
+        "start": 115,
+        "end": 116,
+        "length": 2,
+        "format": "AN",
+        "name": "Surcharge Credit/Debit Indicator"
+      },
+      {
+        "start": 117,
+        "end": 168,
+        "length": 52,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 15,
+      "field_end": 16,
+      "value": "DF"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR5",
+    "variant": "Payment Service Data",
+    "field_count": 34,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 19,
+        "length": 15,
+        "format": "UN",
+        "name": "Transaction Identifier"
+      },
+      {
+        "start": 20,
+        "end": 31,
+        "length": 12,
+        "format": "UN",
+        "name": "Authorized Amount"
+      },
+      {
+        "start": 32,
+        "end": 34,
+        "length": 3,
+        "format": "AN",
+        "name": "Authorization Currency Code"
+      },
+      {
+        "start": 35,
+        "end": 36,
+        "length": 2,
+        "format": "AN",
+        "name": "Authorization Response Code"
+      },
+      {
+        "start": 37,
+        "end": 40,
+        "length": 4,
+        "format": "AN",
+        "name": "Validation Code"
+      },
+      {
+        "start": 41,
+        "end": 41,
+        "length": 1,
+        "format": "AN",
+        "name": "Excluded Transaction Identifier Reason"
+      },
+      {
+        "start": 42,
+        "end": 42,
+        "length": 1,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 43,
+        "end": 44,
+        "length": 2,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 45,
+        "end": 46,
+        "length": 2,
+        "format": "UN",
+        "name": "Multiple Clearing Sequence Number"
+      },
+      {
+        "start": 47,
+        "end": 48,
+        "length": 2,
+        "format": "UN",
+        "name": "Multiple Clearing Sequence Count"
+      },
+      {
+        "start": 49,
+        "end": 49,
+        "length": 1,
+        "format": "AN",
+        "name": "Market-Specific Authorization Data Indicator"
+      },
+      {
+        "start": 50,
+        "end": 61,
+        "length": 12,
+        "format": "UN",
+        "name": "Total Authorized Amount"
+      },
+      {
+        "start": 62,
+        "end": 62,
+        "length": 1,
+        "format": "AN",
+        "name": "Information Indicator"
+      },
+      {
+        "start": 63,
+        "end": 76,
+        "length": 14,
+        "format": "AN",
+        "name": "Merchant Telephone Number"
+      },
+      {
+        "start": 77,
+        "end": 77,
+        "length": 1,
+        "format": "AN",
+        "name": "Additional Data Indicator"
+      },
+      {
+        "start": 78,
+        "end": 79,
+        "length": 2,
+        "format": "AN",
+        "name": "Merchant Volume Indicator"
+      },
+      {
+        "start": 80,
+        "end": 81,
+        "length": 2,
+        "format": "AN",
+        "name": "Electronic Commerce Goods Indicator"
+      },
+      {
+        "start": 82,
+        "end": 91,
+        "length": 10,
+        "format": "AN",
+        "name": "Merchant Verification Value"
+      },
+      {
+        "start": 92,
+        "end": 106,
+        "length": 15,
+        "format": "UN",
+        "name": "Interchange Fee Amount"
+      },
+      {
+        "start": 107,
+        "end": 107,
+        "length": 1,
+        "format": "AN",
+        "name": "Interchange Fee Sign"
+      },
+      {
+        "start": 108,
+        "end": 115,
+        "length": 8,
+        "format": "UN",
+        "name": "Source Currency to Base Currency Exchange Rate"
+      },
+      {
+        "start": 116,
+        "end": 123,
+        "length": 8,
+        "format": "UN",
+        "name": "Base Currency to Destination Currency Exchange Rate"
+      },
+      {
+        "start": 124,
+        "end": 135,
+        "length": 12,
+        "format": "UN",
+        "name": "Optional Issuer ISA Amount"
+      },
+      {
+        "start": 136,
+        "end": 137,
+        "length": 2,
+        "format": "AN",
+        "name": "Product ID"
+      },
+      {
+        "start": 138,
+        "end": 143,
+        "length": 6,
+        "format": "AN",
+        "name": "Program ID"
+      },
+      {
+        "start": 144,
+        "end": 144,
+        "length": 1,
+        "format": "AN",
+        "name": "Dynamic Currency Conversion (DCC) Indicator"
+      },
+      {
+        "start": 145,
+        "end": 148,
+        "length": 4,
+        "format": "AN",
+        "name": "Account Type Identification"
+      },
+      {
+        "start": 149,
+        "end": 149,
+        "length": 1,
+        "format": "AN",
+        "name": "Spend Qualified Indicator"
+      },
+      {
+        "start": 150,
+        "end": 165,
+        "length": 16,
+        "format": "UN",
+        "name": "PAN Token"
+      },
+      {
+        "start": 166,
+        "end": 167,
+        "length": 2,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 168,
+        "end": 168,
+        "length": 1,
+        "format": "AN",
+        "name": "CVV2 Result Code"
+      }
+    ],
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR6",
+    "variant": "Limited-Use Data",
+    "field_count": 25,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 16,
+        "length": 12,
+        "format": "UN",
+        "name": "Local Tax"
+      },
+      {
+        "start": 17,
+        "end": 17,
+        "length": 1,
+        "format": "UN",
+        "name": "Local Tax Included"
+      },
+      {
+        "start": 18,
+        "end": 29,
+        "length": 12,
+        "format": "UN",
+        "name": "National Tax"
+      },
+      {
+        "start": 30,
+        "end": 30,
+        "length": 1,
+        "format": "UN",
+        "name": "National Tax Included"
+      },
+      {
+        "start": 31,
+        "end": 50,
+        "length": 20,
+        "format": "AN",
+        "name": "Merchant VAT Registration/Single Business Reference Number"
+      },
+      {
+        "start": 51,
+        "end": 63,
+        "length": 13,
+        "format": "AN",
+        "name": "Customer VAT Registration Number"
+      },
+      {
+        "start": 64,
+        "end": 75,
+        "length": 12,
+        "format": "AN",
+        "name": "Reserved"
+      },
+      {
+        "start": 76,
+        "end": 79,
+        "length": 4,
+        "format": "AN",
+        "name": "Summary Commodity Code"
+      },
+      {
+        "start": 80,
+        "end": 91,
+        "length": 12,
+        "format": "UN",
+        "name": "Other Tax"
+      },
+      {
+        "start": 92,
+        "end": 106,
+        "length": 15,
+        "format": "AN",
+        "name": "Message Identifier"
+      },
+      {
+        "start": 107,
+        "end": 110,
+        "length": 4,
+        "format": "UN",
+        "name": "Time of Purchase"
+      },
+      {
+        "start": 111,
+        "end": 127,
+        "length": 17,
+        "format": "AN",
+        "name": "Customer Code/Customer Reference Identifier (CRI)"
+      },
+      {
+        "start": 128,
+        "end": 129,
+        "length": 2,
+        "format": "AN",
+        "name": "Non-Fuel Product Code 1"
+      },
+      {
+        "start": 130,
+        "end": 131,
+        "length": 2,
+        "format": "AN",
+        "name": "Non-Fuel Product Code 2"
+      },
+      {
+        "start": 132,
+        "end": 133,
+        "length": 2,
+        "format": "AN",
+        "name": "Non-Fuel Product Code 3"
+      },
+      {
+        "start": 134,
+        "end": 135,
+        "length": 2,
+        "format": "AN",
+        "name": "Non-Fuel Product Code 4"
+      },
+      {
+        "start": 136,
+        "end": 137,
+        "length": 2,
+        "format": "AN",
+        "name": "Non-Fuel Product Code 5"
+      },
+      {
+        "start": 138,
+        "end": 139,
+        "length": 2,
+        "format": "AN",
+        "name": "Non-Fuel Product Code 6"
+      },
+      {
+        "start": 140,
+        "end": 141,
+        "length": 2,
+        "format": "AN",
+        "name": "Non-Fuel Product Code 7"
+      },
+      {
+        "start": 142,
+        "end": 143,
+        "length": 2,
+        "format": "AN",
+        "name": "Non-Fuel Product Code 8"
+      },
+      {
+        "start": 144,
+        "end": 154,
+        "length": 11,
+        "format": "AN",
+        "name": "Merchant Postal Code"
+      },
+      {
+        "start": 155,
+        "end": 168,
+        "length": 14,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCR7",
+    "variant": "Chip Card Transaction Data",
+    "field_count": 25,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 6,
+        "length": 2,
+        "format": "AN",
+        "name": "Transaction Type"
+      },
+      {
+        "start": 7,
+        "end": 9,
+        "length": 3,
+        "format": "UN",
+        "name": "Card Sequence Number"
+      },
+      {
+        "start": 10,
+        "end": 15,
+        "length": 6,
+        "format": "UN",
+        "name": "Terminal Transaction Date"
+      },
+      {
+        "start": 16,
+        "end": 21,
+        "length": 6,
+        "format": "DX",
+        "name": "Terminal Capability Profile"
+      },
+      {
+        "start": 22,
+        "end": 24,
+        "length": 3,
+        "format": "UN",
+        "name": "Terminal Country Code"
+      },
+      {
+        "start": 25,
+        "end": 32,
+        "length": 8,
+        "format": "AN",
+        "name": "Terminal Serial Number"
+      },
+      {
+        "start": 33,
+        "end": 40,
+        "length": 8,
+        "format": "DX",
+        "name": "Unpredictable Number"
+      },
+      {
+        "start": 41,
+        "end": 44,
+        "length": 4,
+        "format": "DX",
+        "name": "Application Transaction Counter"
+      },
+      {
+        "start": 45,
+        "end": 48,
+        "length": 4,
+        "format": "DX",
+        "name": "Application Interchange Profile"
+      },
+      {
+        "start": 49,
+        "end": 64,
+        "length": 16,
+        "format": "DX",
+        "name": "Cryptogram"
+      },
+      {
+        "start": 65,
+        "end": 66,
+        "length": 2,
+        "format": "DX",
+        "name": "Issuer Application Data, Byte 2"
+      },
+      {
+        "start": 67,
+        "end": 68,
+        "length": 2,
+        "format": "DX",
+        "name": "Issuer Application Data, Byte 3"
+      },
+      {
+        "start": 69,
+        "end": 78,
+        "length": 10,
+        "format": "DX",
+        "name": "Terminal Verification Results"
+      },
+      {
+        "start": 79,
+        "end": 86,
+        "length": 8,
+        "format": "DX",
+        "name": "Issuer Application Data, Byte 4–7"
+      },
+      {
+        "start": 87,
+        "end": 98,
+        "length": 12,
+        "format": "UN",
+        "name": "Cryptogram Amount"
+      },
+      {
+        "start": 99,
+        "end": 100,
+        "length": 2,
+        "format": "DX",
+        "name": "Issuer Application Data, Byte 8"
+      },
+      {
+        "start": 101,
+        "end": 116,
+        "length": 16,
+        "format": "DX",
+        "name": "Issuer Application Data, Byte 9–16"
+      },
+      {
+        "start": 117,
+        "end": 118,
+        "length": 2,
+        "format": "DX",
+        "name": "Issuer Application Data, Byte 1"
+      },
+      {
+        "start": 119,
+        "end": 120,
+        "length": 2,
+        "format": "DX",
+        "name": "Issuer Application Data, Byte 17"
+      },
+      {
+        "start": 121,
+        "end": 150,
+        "length": 30,
+        "format": "DX",
+        "name": "Issuer Application Data, Byte 18–32"
+      },
+      {
+        "start": 151,
+        "end": 158,
+        "length": 8,
+        "format": "DX",
+        "name": "Form Factor Indicator"
+      },
+      {
+        "start": 159,
+        "end": 168,
+        "length": 10,
+        "format": "DX",
+        "name": "Issuer Script 1 Results"
+      }
+    ],
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCRD",
+    "variant": "Installment Payment",
+    "field_count": 11,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "AN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 6,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 7,
+        "end": 18,
+        "length": 12,
+        "format": "UN",
+        "name": "Installment Payment Total Amount"
+      },
+      {
+        "start": 19,
+        "end": 21,
+        "length": 3,
+        "format": "AN",
+        "name": "Installment Payment Currency Code"
+      },
+      {
+        "start": 22,
+        "end": 24,
+        "length": 3,
+        "format": "UN",
+        "name": "Number of Installments"
+      },
+      {
+        "start": 25,
+        "end": 36,
+        "length": 12,
+        "format": "UN",
+        "name": "Amount of Each Installment"
+      },
+      {
+        "start": 37,
+        "end": 39,
+        "length": 3,
+        "format": "UN",
+        "name": "Installment Payment Number"
+      },
+      {
+        "start": 40,
+        "end": 40,
+        "length": 1,
+        "format": "AN",
+        "name": "Frequency of Installments"
+      },
+      {
+        "start": 41,
+        "end": 168,
+        "length": 128,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 5,
+      "field_end": 6,
+      "value": "IP"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCRD",
+    "variant": "Original Credit Additional Data",
+    "field_count": 6,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "AN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 6,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 7,
+        "end": 36,
+        "length": 30,
+        "format": "AN",
+        "name": "Recipient Name"
+      },
+      {
+        "start": 37,
+        "end": 168,
+        "length": 132,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "discriminator": {
+      "field_start": 5,
+      "field_end": 6,
+      "value": "OC"
+    },
+    "auto_classifiable": true
+  },
+  {
+    "tcr": "TCRE",
+    "variant": "Visa Europe V.ME Data",
+    "field_count": 8,
+    "fields": [
+      {
+        "start": 1,
+        "end": 2,
+        "length": 2,
+        "format": "UN",
+        "name": "Transaction Code"
+      },
+      {
+        "start": 3,
+        "end": 3,
+        "length": 1,
+        "format": "UN",
+        "name": "Transaction Code Qualifier"
+      },
+      {
+        "start": 4,
+        "end": 4,
+        "length": 1,
+        "format": "AN",
+        "name": "Transaction Component Sequence Number"
+      },
+      {
+        "start": 5,
+        "end": 6,
+        "length": 2,
+        "format": "AN",
+        "name": "Business Format Code"
+      },
+      {
+        "start": 7,
+        "end": 11,
+        "length": 5,
+        "format": "AN",
+        "name": "Agent Unique ID"
+      },
+      {
+        "start": 12,
+        "end": 13,
+        "length": 2,
+        "format": "AN",
+        "name": "Additional Authentication Method"
+      },
+      {
+        "start": 14,
+        "end": 15,
+        "length": 2,
+        "format": "AN",
+        "name": "Additional Authentication Reason Code"
+      },
+      {
+        "start": 16,
+        "end": 168,
+        "length": 153,
+        "format": "AN",
+        "name": "Reserved"
+      }
+    ],
+    "auto_classifiable": true
+  }
+]

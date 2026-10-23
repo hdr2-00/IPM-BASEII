@@ -1,0 +1,907 @@
+/* ==========================================================================
+   mciipm — clearing file inspector
+
+   Visual language: the reconciliation ledger. Surfaces are distinguished by
+   tone and a hairline border rather than by stacked drop shadows, elevation
+   is reserved for the one thing that genuinely floats, and the accent is the
+   ledger's own green rather than a dashboard blue. Field values are set in a
+   monospaced face with tabular figures, because in both clearing formats a
+   value is byte-exact and its padding is part of the data.
+   ========================================================================== */
+
+/* ------------------------------------------------------------- tokens --- */
+:root {
+  color-scheme: light;
+
+  /* Ink and paper: the paper is barely warm, like a statement; the ink is
+     cool rather than brown-black. */
+  --paper:          #faf9f6;
+  --surface:        #ffffff;
+  --surface-sunken: #f1efe9;
+  --surface-raised: #ffffff;
+  --surface-hover:  #f4f2ec;
+  --surface-active: #e9e6dd;
+
+  --ink:       #16181d;
+  --ink-muted: #5a5e68;
+  --ink-faint: #8b8f99;
+
+  --rule:        #e2dfd6;   /* hairline between rows and sections */
+  --rule-strong: #cfcbc0;
+
+  /* Ledger green: the accent, used for primary action and active state. */
+  --accent:         #1b4d3e;
+  --accent-hover:   #143b2f;
+  --on-accent:      #ffffff;
+  --accent-wash:    #e4efe9;
+  --on-accent-wash: #10382c;
+
+  /* Severity. Oxblood rather than fire-engine red; the amber is dark
+     enough to carry text on its own wash at 4.5:1. */
+  --error:         #a4262c;
+  --error-wash:    #fbe9e8;
+  --on-error-wash: #6b1419;
+  --warn:          #8a5a00;
+  --warn-wash:     #fdf1dc;
+  --on-warn-wash:  #5a3a00;
+  --ok:            #1b6b4a;
+  --ok-wash:       #e2f1e9;
+  --on-ok-wash:    #0f4330;
+
+  /* Money direction — this domain's central distinction. */
+  --debit:  #16181d;
+  --credit: #1b6b4a;
+
+  --focus: #1b4d3e;
+
+  --shadow-modal: 0 12px 32px -8px rgba(22, 24, 29, 0.28), 0 2px 8px rgba(22, 24, 29, 0.12);
+
+  --radius-sm:   4px;
+  --radius:      6px;
+  --radius-lg:   10px;
+  --radius-pill: 999px;
+
+  /* Dense dashboard spacing, 4px base. */
+  --s1: 4px;  --s2: 8px;  --s3: 12px; --s4: 16px;
+  --s5: 20px; --s6: 24px; --s7: 32px; --s8: 48px;
+
+  /* Inter ships with Windows and most design toolchains; Segoe UI Variable
+     and the platform defaults carry everyone else. Nothing is fetched. */
+  --font-ui: Inter, "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont,
+             "Segoe UI", Roboto, system-ui, sans-serif;
+  --font-data: "Cascadia Mono", Consolas, "SF Mono", "JetBrains Mono",
+               ui-monospace, "Liberation Mono", monospace;
+}
+
+/* Dark: a console register. Layered greys rather than one flat near-black
+   with a single neon accent, so severity colour still carries meaning. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --paper:          #14161a;
+    --surface:        #1b1e23;
+    --surface-sunken: #101215;
+    --surface-raised: #22262c;
+    --surface-hover:  #262a31;
+    --surface-active: #2e333b;
+
+    --ink:       #e8e6e1;
+    --ink-muted: #a8aab2;
+    --ink-faint: #777b85;
+
+    --rule:        #2c3038;
+    --rule-strong: #3b414b;
+
+    --accent:         #5fbf95;
+    --accent-hover:   #7bd0ab;
+    --on-accent:      #06251a;
+    --accent-wash:    #17352b;
+    --on-accent-wash: #a7e3c8;
+
+    --error:         #f08a8a;
+    --error-wash:    #3c1a1c;
+    --on-error-wash: #ffc9c6;
+    --warn:          #e5b45c;
+    --warn-wash:     #3a2c10;
+    --on-warn-wash:  #ffd99b;
+    --ok:            #68c79a;
+    --ok-wash:       #16342a;
+    --on-ok-wash:    #a9e6c7;
+
+    --debit:  #e8e6e1;
+    --credit: #68c79a;
+
+    --focus: #7bd0ab;
+
+    --shadow-modal: 0 16px 40px -8px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* An explicit choice from the theme control wins over the OS default. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --paper:          #14161a;
+  --surface:        #1b1e23;
+  --surface-sunken: #101215;
+  --surface-raised: #22262c;
+  --surface-hover:  #262a31;
+  --surface-active: #2e333b;
+
+  --ink:       #e8e6e1;
+  --ink-muted: #a8aab2;
+  --ink-faint: #777b85;
+
+  --rule:        #2c3038;
+  --rule-strong: #3b414b;
+
+  --accent:         #5fbf95;
+  --accent-hover:   #7bd0ab;
+  --on-accent:      #06251a;
+  --accent-wash:    #17352b;
+  --on-accent-wash: #a7e3c8;
+
+  --error:         #f08a8a;
+  --error-wash:    #3c1a1c;
+  --on-error-wash: #ffc9c6;
+  --warn:          #e5b45c;
+  --warn-wash:     #3a2c10;
+  --on-warn-wash:  #ffd99b;
+  --ok:            #68c79a;
+  --ok-wash:       #16342a;
+  --on-ok-wash:    #a9e6c7;
+
+  --debit:  #e8e6e1;
+  --credit: #68c79a;
+
+  --focus: #7bd0ab;
+
+  --shadow-modal: 0 16px 40px -8px rgba(0, 0, 0, 0.7), 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------- base --- */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  letter-spacing: -0.011em;
+  font-weight: 600;
+}
+h1 { font-size: 20px; }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+
+a { color: var(--accent); text-underline-offset: 2px; }
+
+.mono, .num {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+  font-size: 12.5px;
+}
+.num { text-align: right; white-space: nowrap; }
+.muted { color: var(--ink-muted); }
+.faint { color: var(--ink-faint); }
+.text-sm { font-size: 12.5px; }
+.mt-0 { margin-top: 0; }
+
+.icon { vertical-align: middle; flex-shrink: 0; }
+
+/* One focus rule for every control. :focus-visible means it never shows on
+   a mouse click, only on keyboard and assistive interaction. */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Hides an element visually while leaving it focusable and in the tab
+   order - display:none drops the file input out of reach entirely. */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------- top app bar -- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: 0 var(--s5);
+  height: 56px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.topbar .icon { width: 20px; height: 20px; }
+.topbar > .icon:first-child { color: var(--accent); width: 22px; height: 22px; }
+.topbar-identity { min-width: 0; }
+.topbar-title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.topbar-subtitle {
+  font-size: 12px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.35;
+}
+.topbar-spacer { flex: 1; }
+.topbar-sep {
+  width: 1px;
+  height: 22px;
+  background: var(--rule);
+  flex: none;
+}
+
+/* ------------------------------------------------------------- layout --- */
+.page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: var(--s5) var(--s5) var(--s8);
+}
+.center-page {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s6) var(--s4);
+}
+
+/* -------------------------------------------------------------- panel --- */
+/* Not a floating card: a bordered surface. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: var(--s5);
+}
+.card + .card { margin-top: var(--s5); }
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 var(--s1);
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  color: var(--ink);
+}
+.card-title .icon { width: 16px; height: 16px; color: var(--ink-faint); }
+.card-subtitle {
+  font-size: 12.5px;
+  color: var(--ink-muted);
+  margin: 0 0 var(--s4);
+}
+
+/* ------------------------------------------------------------ buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  line-height: 1.3;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn .icon { width: 16px; height: 16px; }
+
+.btn-filled { background: var(--accent); color: var(--on-accent); }
+.btn-filled:hover:not(:disabled) { background: var(--accent-hover); }
+
+.btn-tonal { background: var(--accent-wash); color: var(--on-accent-wash); }
+.btn-tonal:hover:not(:disabled) { filter: brightness(0.96); }
+
+.btn-outlined {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+.btn-outlined:hover:not(:disabled) { background: var(--surface-hover); }
+
+.btn-text { background: transparent; color: var(--ink-muted); padding: 7px 10px; }
+.btn-text:hover:not(:disabled) { background: var(--surface-hover); color: var(--ink); }
+
+.btn-sm { padding: 5px 10px; font-size: 12.5px; }
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  flex: none;
+  transition: background-color .15s ease, color .15s ease;
+}
+.icon-btn:hover { background: var(--surface-hover); color: var(--ink); }
+.icon-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.icon-btn:disabled:hover { background: transparent; }
+.icon-btn .icon { width: 18px; height: 18px; }
+
+/* Three-state theme control: follow the system, force light, force dark.
+   The two-state toggle it replaces could never get back to "system". */
+.theme-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 2px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  flex: none;
+}
+.theme-control button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--ink-faint);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease;
+}
+.theme-control button .icon { width: 15px; height: 15px; }
+.theme-control button:hover { color: var(--ink); }
+.theme-control button[aria-pressed="true"] {
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: 0 0 0 1px var(--rule);
+}
+
+/* --------------------------------------------------------------- tabs --- */
+.tabs {
+  display: flex;
+  align-items: stretch;
+  gap: var(--s1);
+  margin-bottom: var(--s5);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  /* The rule under the strip is painted as an inset shadow rather than a
+     border. A border is part of the box, so pulling the tab buttons down
+     1px to overlap it (margin-bottom: -1px) made the content 1px taller
+     than the container - and since overflow-x: auto forces overflow-y to
+     compute to auto as well, that 1px produced a vertical scrollbar
+     across the whole strip, including the Export CSV button. An inset
+     shadow takes no layout space, so the buttons sit flush and nothing
+     overflows. */
+  box-shadow: inset 0 -1px 0 var(--rule);
+}
+.tab-btn {
+  flex: none;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--ink-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  transition: color .15s ease, border-color .15s ease;
+}
+.tab-btn .icon { width: 16px; height: 16px; }
+.tab-btn:hover { color: var(--ink); }
+.tab-btn.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+.tab-btn.active .icon { color: var(--accent); }
+
+/* ---------------------------------------------------------- file strip -- */
+/* One segment per record, in file order, coloured by status. Clearing files
+   fail in positional patterns - at a block boundary, inside one batch, from
+   a point onward - and this is the only view that shows that shape. */
+.file-strip-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  margin-bottom: var(--s5);
+}
+.file-strip {
+  display: flex;
+  gap: 1px;
+  height: 34px;
+  padding: 3px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.file-strip-seg {
+  flex: 1 1 0;
+  min-width: 2px;
+  border: none;
+  padding: 0;
+  border-radius: 1px;
+  cursor: pointer;
+  background: var(--ok);
+  opacity: 0.5;
+  transition: opacity .12s ease;
+}
+.file-strip-seg:hover,
+.file-strip-seg:focus-visible { opacity: 1; }
+.file-strip-seg.warning { background: var(--warn); opacity: 0.85; }
+.file-strip-seg.error   { background: var(--error); opacity: 1; }
+.file-strip-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s4);
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.file-strip-legend span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* ----------------------------------------------------------- stat row --- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--s3);
+  margin-bottom: var(--s5);
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: var(--s3) var(--s4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stat-card.is-error   { border-color: color-mix(in srgb, var(--error) 45%, var(--rule)); }
+.stat-card.is-warning { border-color: color-mix(in srgb, var(--warn) 45%, var(--rule)); }
+.stat-value {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.stat-card.is-error .stat-value   { color: var(--error); }
+.stat-card.is-warning .stat-value { color: var(--warn); }
+.stat-card.is-ok .stat-value      { color: var(--ok); }
+.stat-label {
+  font-size: 12px;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.stat-label .icon { width: 13px; height: 13px; }
+
+/* --------------------------------------------------------------- grid --- */
+.two-col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--s5);
+  margin-bottom: var(--s5);
+  align-items: start;  /* each panel sizes to its own content */
+}
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: var(--s5);
+  align-items: start;
+}
+
+/* ------------------------------------------------------------- tables --- */
+.table-scroll { overflow-x: auto; min-width: 0; }
+
+table.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table th {
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  padding: 0 var(--s3) var(--s2);
+  border-bottom: 1px solid var(--rule-strong);
+  white-space: nowrap;
+}
+.data-table th.num { text-align: right; }
+.data-table td {
+  padding: 7px var(--s3);
+  border-bottom: 1px solid var(--rule);
+  vertical-align: baseline;
+}
+.data-table tbody tr:last-child td { border-bottom: none; }
+
+/* Only the records table navigates; a summary table must not advertise a
+   click that does nothing. */
+.data-table.rows-clickable tbody tr {
+  cursor: pointer;
+  transition: background-color .1s ease;
+}
+.data-table.rows-clickable tbody tr:hover { background: var(--surface-hover); }
+.data-table.rows-clickable tbody tr.selected {
+  background: var(--accent-wash);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.data-table .mono { font-size: 12px; }
+.col-function { white-space: nowrap; }
+.col-status { white-space: nowrap; }
+.row-num { color: var(--ink-faint); font-size: 11.5px; }
+
+/* Amount cells carry direction: a debit reads as ink, a credit as ledger
+   green with a sign, so a refund never looks like a sale at a glance. */
+.amount {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.amount .cur { color: var(--ink-faint); font-size: 11px; margin-left: 3px; }
+.amount.is-credit { color: var(--credit); }
+
+.kv-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.kv-table td { padding: 6px 0; border-bottom: 1px solid var(--rule); }
+.kv-table tr:last-child td { border-bottom: none; }
+.kv-table td:first-child { color: var(--ink); }
+.kv-table td:first-child .icon { width: 12px; height: 12px; vertical-align: -1px; }
+.kv-table td:last-child {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Field detail: a name/value pair list. Visa tags run past 50 characters,
+   so the name wraps and the value keeps its own column. */
+.field-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.field-table td { padding: 5px var(--s2); border-bottom: 1px solid var(--rule); }
+.field-table tr:last-child td { border-bottom: none; }
+.field-table td:first-child {
+  width: 44%;
+  color: var(--ink-muted);
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+.field-table td:last-child {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.field-table tr:hover td { background: var(--surface-hover); }
+
+/* -------------------------------------------------------------- chips --- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.chip-error   { background: var(--error-wash); color: var(--on-error-wash); }
+.chip-warning { background: var(--warn-wash);  color: var(--on-warn-wash); }
+.chip-success { background: var(--ok-wash);    color: var(--on-ok-wash); }
+.chip-neutral { background: var(--surface-sunken); color: var(--ink-muted); }
+.chip-count {
+  margin-left: 5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-faint);
+}
+.filter-chip.active .chip-count { color: inherit; opacity: 0.75; }
+
+.status-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-right: 7px;
+  vertical-align: 1px;
+}
+.status-dot.ok { background: var(--ok); }
+.status-dot.error { background: var(--error); }
+.status-dot.warning { background: var(--warn); }
+
+/* ------------------------------------------------------------ toolbar --- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  margin-bottom: var(--s4);
+  flex-wrap: wrap;
+}
+.toolbar .spacer { flex: 1; }
+.filter-group { display: flex; gap: var(--s1); }
+.filter-chip {
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  color: var(--ink-muted);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 12.5px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.filter-chip:hover { background: var(--surface-hover); color: var(--ink); }
+.filter-chip.active {
+  background: var(--accent-wash);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--rule));
+  color: var(--on-accent-wash);
+}
+
+/* ------------------------------------------------------------- alerts --- */
+/* The severity spine: a 3px rule down the left edge, like a ledger margin
+   mark, so a findings list is scannable without reading any of it. */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  border-radius: var(--radius);
+  border-left: 3px solid transparent;
+  font-size: 13px;
+  margin-bottom: var(--s3);
+}
+.alert .icon { width: 16px; height: 16px; margin-top: 1px; }
+.alert-error {
+  background: var(--error-wash);
+  color: var(--on-error-wash);
+  border-left-color: var(--error);
+}
+.alert-warning {
+  background: var(--warn-wash);
+  color: var(--on-warn-wash);
+  border-left-color: var(--warn);
+}
+.alert-success {
+  background: var(--ok-wash);
+  color: var(--on-ok-wash);
+  border-left-color: var(--ok);
+}
+.alert-clickable { cursor: pointer; }
+.alert-clickable:hover { filter: brightness(0.975); }
+.alert-go { margin-left: auto; align-self: center; opacity: 0.5; flex: none; }
+.alert-clickable:hover .alert-go { opacity: 1; }
+.alert-rule { font-family: var(--font-data); font-size: 11.5px; opacity: 0.85; }
+
+/* --------------------------------------------------------------- forms -- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: var(--s4);
+}
+.field > label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--ink);
+}
+select, input[type="text"] {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 7px 10px;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+}
+select:focus, input[type="text"]:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: -1px;
+  border-color: var(--accent);
+}
+.radio-group { display: flex; flex-direction: column; gap: 6px; }
+.radio-row, .checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+}
+input[type="radio"], input[type="checkbox"] { accent-color: var(--accent); margin: 0; }
+
+/* Network picker on the upload page. */
+.scheme-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s2);
+}
+.scheme-option {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s3) var(--s4);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule-strong);
+  background: var(--surface);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--ink);
+  transition: border-color .15s ease, background-color .15s ease;
+}
+.scheme-option:hover { background: var(--surface-hover); }
+.scheme-option.active {
+  border-color: var(--accent);
+  background: var(--accent-wash);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+.scheme-option .icon { width: 20px; height: 20px; color: var(--ink-faint); }
+.scheme-option.active .icon { color: var(--accent); }
+.scheme-option-title { font-size: 13px; font-weight: 600; }
+.scheme-option-sub { font-size: 11.5px; color: var(--ink-muted); }
+
+/* Drop target. A <label> so click and keyboard reach the input natively. */
+.dropzone {
+  display: block;
+  border: 1.5px dashed var(--rule-strong);
+  border-radius: var(--radius);
+  padding: var(--s7) var(--s5);
+  text-align: center;
+  color: var(--ink-muted);
+  font-size: 13px;
+  background: var(--surface-sunken);
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+.dropzone:hover { border-color: var(--accent); }
+.dropzone .icon { width: 28px; height: 28px; color: var(--ink-faint); margin-bottom: var(--s2); }
+.dropzone.dragover {
+  border-color: var(--accent);
+  background: var(--accent-wash);
+  color: var(--on-accent-wash);
+}
+.dropzone.dragover .icon { color: var(--accent); }
+.dropzone:focus-within { outline: 2px solid var(--focus); outline-offset: 2px; }
+.dropzone-filename {
+  margin-top: var(--s2);
+  font-family: var(--font-data);
+  font-size: 12.5px;
+  color: var(--ink);
+}
+.dropzone.has-file {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+/* ---------------------------------------------------------- pagination -- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s3);
+  padding-top: var(--s3);
+  margin-top: var(--s3);
+  border-top: 1px solid var(--rule);
+  font-size: 12.5px;
+  color: var(--ink-muted);
+}
+.pagination-controls { display: flex; align-items: center; gap: var(--s2); }
+
+/* -------------------------------------------------------- empty states -- */
+.empty-state, .detail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s8) var(--s5);
+  color: var(--ink-muted);
+  text-align: center;
+  gap: var(--s2);
+  font-size: 13px;
+}
+.empty-state .icon, .detail-empty .icon {
+  width: 30px; height: 30px;
+  color: var(--ink-faint);
+}
+
+/* ------------------------------------------------------------- spinner -- */
+.spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  vertical-align: -2px;
+}
+.spinner-lg { width: 24px; height: 24px; border-width: 2.5px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.upload-loading { display: none; align-items: center; gap: var(--s2); }
+.htmx-request .upload-loading { display: inline-flex; }
+.htmx-request #upload-submit-label { display: none !important; }
+
+/* -------------------------------------------------------------- dialog -- */
+.dialog {
+  border: 1px solid var(--rule);
+  background: transparent;
+  padding: 0;
+  /* The UA stylesheet sets dialog { overflow: auto }, which shows a
+     scrollbar the moment content is a pixel over - on a panel this short
+     it can only ever be a phantom. Scrolling comes back only when the
+     viewport is genuinely too short to hold it (below). */
+  overflow: visible;
+  max-width: 440px;
+  width: calc(100% - 32px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+}
+.dialog::backdrop { background: rgba(10, 12, 15, 0.55); }
+@media (max-height: 420px) {
+  .dialog { max-height: calc(100vh - 32px); overflow: auto; }
+}
+.dialog .card { width: 100%; border: none; }
+
+/* -------------------------------------------------------------- narrow -- */
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: minmax(0, 1fr); }
+  /* minmax(0,1fr), not 1fr: an auto minimum lets a wide table push the grid
+     item - and the page - past the viewport. */
+  .split { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .topbar { padding: 0 var(--s3); gap: var(--s2); }
+  .topbar .btn-label { display: none; }
+  .topbar-sep { display: none; }
+  .page { padding: var(--s4) var(--s3) var(--s7); }
+  .tab-btn { padding: 10px var(--s3); }
+  .tabs .btn { display: none; }   /* the topbar already carries Export */
+  .card { padding: var(--s4); }
+  .col-ident { display: none; }   /* the function name says what the code says */
+  .file-strip { height: 26px; }
+}
+
+/* Motion here is decoration, not information. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* A spinner is progress feedback rather than decoration, so it keeps
+     turning - just more slowly. */
+  .spinner { animation-duration: 1.4s !important; animation-iteration-count: infinite !important; }
+}

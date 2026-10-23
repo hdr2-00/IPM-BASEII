@@ -1,0 +1,90 @@
+{{define "records.html"}}
+{{$unit := "record"}}{{if eq .Scheme "visa"}}{{$unit = "transaction"}}{{end}}
+<div class="toolbar" id="records-filter-group">
+  <div class="filter-group">
+    <button class="filter-chip {{if eq .Filter ""}}active{{end}}" onclick="setActiveFilter(this,'#records-filter-group')"
+            hx-get="/partial/records?page=1&filter=" hx-target="#tab-content">All<span class="chip-count">{{.Counts.Total}}</span></button>
+    <button class="filter-chip {{if eq .Filter "errors"}}active{{end}}" onclick="setActiveFilter(this,'#records-filter-group')"
+            hx-get="/partial/records?page=1&filter=errors" hx-target="#tab-content">Errors<span class="chip-count">{{.Counts.Errors}}</span></button>
+    <button class="filter-chip {{if eq .Filter "warnings"}}active{{end}}" onclick="setActiveFilter(this,'#records-filter-group')"
+            hx-get="/partial/records?page=1&filter=warnings" hx-target="#tab-content">Warnings<span class="chip-count">{{.Counts.Warnings}}</span></button>
+  </div>
+  <div class="spacer"></div>
+  <div class="text-sm muted">{{.Pagination.Total}} {{$unit}}{{if ne .Pagination.Total 1}}s{{end}} shown</div>
+</div>
+
+<div class="split">
+  <div class="card">
+    <div class="table-scroll">
+      <table class="data-table rows-clickable">
+        <thead>
+          <tr>
+            <th scope="col" class="num">#</th>
+            <th scope="col" class="col-ident">{{if eq .Scheme "visa"}}TC{{else}}MTI{{end}}</th>
+            <th scope="col">Function</th>
+            <th scope="col" class="num">Amount</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody id="records-tbody">
+          {{$sel := .Selected}}
+          {{range .Rows}}
+          <tr class="{{if eq .RecordNumber $sel}}selected{{end}}" tabindex="0"
+              aria-label="{{$unit}} {{.RecordNumber}}, {{.Function}}"
+              hx-get="/partial/record?record={{.RecordNumber}}" hx-target="#record-detail-panel"
+              hx-trigger="click, keyup[key=='Enter'], keyup[key==' ']"
+              onclick="selectRecordRow(this)"
+              onkeyup="if(event.key==='Enter'||event.key===' ')selectRecordRow(this)">
+            <td class="num row-num">{{.RecordNumber}}</td>
+            <td class="mono col-ident">{{.Identifier}}</td>
+            <td class="col-function">{{.Function}}</td>
+            <td class="num">
+              {{if .HasAmount}}
+                <span class="amount{{if .IsCredit}} is-credit{{end}}">{{if .IsCredit}}+{{end}}{{.Display}}<span class="cur">{{.Currency}}</span></span>
+              {{else}}<span class="faint">—</span>{{end}}
+            </td>
+            <td class="col-status">
+              {{if .Errors}}
+                <span class="status-dot error"></span>{{.Errors}} error{{if ne .Errors 1}}s{{end}}
+              {{else if .Warnings}}
+                <span class="status-dot warning"></span>{{.Warnings}} warning{{if ne .Warnings 1}}s{{end}}
+              {{else}}
+                <span class="status-dot ok"></span>clean
+              {{end}}
+            </td>
+          </tr>
+          {{else}}
+          <tr><td colspan="5" class="muted" style="text-align:center; padding:var(--s7) 0;">Nothing matches this filter.</td></tr>
+          {{end}}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination">
+      <div>{{.Pagination.RangeStart}}–{{.Pagination.RangeEnd}} of {{.Pagination.Total}}</div>
+      <div class="pagination-controls">
+        <button class="icon-btn" aria-label="Previous page" {{if not .Pagination.HasPrev}}disabled{{end}}
+                hx-get="/partial/records?page={{.Pagination.PrevPage}}&filter={{.Filter}}" hx-target="#tab-content">
+          {{icon "chevron_left" 18}}
+        </button>
+        <span class="text-sm">Page {{.Pagination.Page}} of {{.Pagination.TotalPages}}</span>
+        <button class="icon-btn" aria-label="Next page" {{if not .Pagination.HasNext}}disabled{{end}}
+                hx-get="/partial/records?page={{.Pagination.NextPage}}&filter={{.Filter}}" hx-target="#tab-content">
+          {{icon "chevron_right" 18}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" id="record-detail-panel">
+    {{if .Detail}}
+      {{template "record_detail.html" .Detail}}
+    {{else}}
+      <div class="detail-empty">
+        {{icon "touch_app" 30}}
+        <div>Select a {{$unit}} to see its fields.</div>
+      </div>
+    {{end}}
+  </div>
+</div>
+{{end}}
